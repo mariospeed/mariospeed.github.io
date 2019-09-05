@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Super Mario 64</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://bootswatch.com/4/simplex/bootstrap.min.css">
+</head>
+<body onload="SM6470StarFunction(); SM64120StarFunction(); SM6416StarFunction(); SM641StarFunction(); SM640StarFunction()"> 
+
+<script>
+function SM6470StarFunction() {
+$.ajax({
+            type: "POST", //rest Type
+            dataType: 'jsonp', //mispelled
+            url: "https://www.speedrun.com/api/v1/leaderboards/sm64/category/70_Star?top=1",
+            async: false,
+            contentType: "application/json; charset=utf-8",
+            success: function (msg) {
+                //document.write(msg.data.runs[0].place);    
+				// $(document.body).append(msg.data.runs[0].run['times'].primary_t);
+				var time = msg.data.runs[0].run['times'].primary_t;
+				var minutes = Math.floor(time / 60);
+				var seconds = time - minutes * 60;
+				var link = msg.data.runs[0].run.weblink;
+				var runner = msg.data.runs[0].run['players'][0].uri;
+				var date = msg.data.runs[0].run.date;
+				var category = msg.data.weblink;
+				
+				$.ajax({
+							type: "POST",
+							dataType: 'jsonp',
+							url: runner,
+							async: false,
+							contentType: "application/json; charset=utf-8",
+							success: function (msg) {
+								//document.write(msg.data.runs[0].place);    
+								// $(document.body).append(msg.data.runs[0].run['times'].primary_t);
+								var name = msg.data.names.international;
+								var nameLink = msg.data.weblink;
+
+
+								document.getElementById("SM6470StarCategory").innerHTML = "<a href=" + category +">" + "70 Star"+ "</a>";
+								document.getElementById("SM6470StarTime").innerHTML = minutes + ":" + seconds.toFixed(2) ;
+								document.getElementById("SM6470StarRunner").innerHTML =   "<a href=" + nameLink +">" + name + "</a>";
+								document.getElementById("SM6470StarDate").innerHTML = date;
+								document.getElementById("SM6470StarLink").innerHTML =  "<a href=" + link +">" + "Link"+ "</a>";
+
+							}
+				 });
+				 
+				//$(document.body).append("70 star: "+ minutes + ":" + seconds);
+
+
+            }
+ });// // Just an example
+    $(document).ready(function() {
+  $("#SM64Click").click(function() {
+	$("#SM640Star").toggle();
+	$("#SM641Star").toggle();
+	$("#SM6416Star").toggle();
+	$("#SM6470Star").toggle();
+		$("#SM64120Star").toggle();
+  });
+});
+}
+
+function SM64120StarFunction() {
+ $.ajax({
+            type: "POST", //rest Type
+            dataType: 'jsonp', //mispelled
+            url: "https://www.speedrun.com/api/v1/leaderboards/sm64/category/120_Star?top=1",
+            async: false,
+            contentType: "application/json; charset=utf-8",
+            success: function (msg) {
+                //document.write(msg.data.runs[0].place);    
+				// $(document.body).append(msg.data.runs[0].run['times'].primary_t);
+				var time = msg.data.runs[0].run['times'].primary_t;
+				var minutes = Math.floor(time / 60);
+				var seconds = time - minutes * 60;
+				var link = msg.data.runs[0].run.weblink;
+				var runner = msg.data.runs[0].run['players'][0].uri;
+				var date = msg.data.runs[0].run.date;
+				var category = msg.data.weblink;
+				var hours = 1;
+				var newMin = minutes - 60;
+				
+				$.ajax({
+							type: "POST",
+							dataType: 'jsonp',
+							url: runner,
+							async: false,
+							contentType: "application/json; charset=utf-8",
+							success: function (msg) {
+								//document.write(msg.data.runs[0].place);    
+								// $(document.body).append(msg.data.runs[0].run['times'].primary_t);
+								var name = msg.data.names.international;
+								var nameLink = msg.data.weblink;
+
+
+								document.getElementById("SM64120StarCategory").innerHTML = "<a href=" + category +">" + "120 Star"+ "</a>";
+								document.getElementById("SM64120StarTime").innerHTML =hours  + ":" + newMin + ":" + seconds.toFixed(2) ;
+								document.getElementById("SM64120StarRunner").innerHTML =   "<a href=" + nameLink +">" + name + "</a>";
+								document.getElementById("SM64120StarDate").innerHTML = date;
+								document.getElementById("SM64120StarLink").innerHTML =  "<a href=" + link +">" + "Link"+ "</a>";
+
+							}
+				 });
+				 
+				//$(document.body).append("70 star: "+ minutes + ":" + seconds);
+
+
+            }
+ }); // Just an example
+}
+
+function SM6416StarFunction() {
+ $.ajax({
+            type: "POST", //rest Type
+            dataType: 'jsonp', //mispelled
+            url: "https://www.speedrun.com/api/v1/leaderboards/sm64/category/16_Star?top=1",
+            async: false,
+            contentType: "application/json; charset=utf-8",
+            success: function (msg) {
+                //document.write(msg.data.runs[0].place);    
+				// $(document.body).append(msg.data.runs[0].run['times'].primary_t);
+				var time = msg.data.runs[0].run['times'].primary_t;
+				var minutes = Math.floor(time / 60);
+				var seconds = time - minutes * 60;
+				var link = msg.data.runs[0].run.weblink;
+				var runner = msg.data.runs[0].run['players'][0].uri;
+				var date = msg.data.runs[0].run.date;
+				var category = msg.data.weblink;
+				
+				$.ajax({
+							type: "POST",
+							dataType: 'jsonp',
+							url: runner,
+							async: false,
+							contentType: "application/json; charset=utf-8",
+							success: function (msg) {
+								//document.write(msg.data.runs[0].place);    
+								// $(document.body).append(msg.data.runs[0].run['times'].primary_t);
+								var name = msg.data.names.international;
+								var nameLink = msg.data.weblink;
+
+
+								document.getElementById("SM6416StarCategory").innerHTML = "<a href=" + category +">" + "16 Star"+ "</a>";
+								document.getElementById("SM6416StarTime").innerHTML = minutes + ":0" + seconds.toFixed(2) ;
+								document.getElementById("SM6416StarRunner").innerHTML =   "<a href=" + nameLink +">" + name + "</a>";
+								document.getElementById("SM6416StarDate").innerHTML = date;
+								document.getElementById("SM6416StarLink").innerHTML =  "<a href=" + link +">" + "Link"+ "</a>";
+
+							}
+				 });
+				 
+				//$(document.body).append("70 star: "+ minutes + ":" + seconds);
+
+
+            }
+ });// Just an example
+}
+function SM641StarFunction() {
+ $.ajax({
+            type: "POST", //rest Type
+            dataType: 'jsonp', //mispelled
+            url: "https://www.speedrun.com/api/v1/leaderboards/sm64/category/1_Star?top=1",
+            async: false,
+            contentType: "application/json; charset=utf-8",
+            success: function (msg) {
+                //document.write(msg.data.runs[0].place);    
+				// $(document.body).append(msg.data.runs[0].run['times'].primary_t);
+				var time = msg.data.runs[0].run['times'].primary_t;
+				var minutes = Math.floor(time / 60);
+				var seconds = time - minutes * 60;
+				var link = msg.data.runs[0].run.weblink;
+				var runner = msg.data.runs[0].run['players'][0].uri;
+				var date = msg.data.runs[0].run.date;
+				var category = msg.data.weblink;
+				
+				$.ajax({
+							type: "POST",
+							dataType: 'jsonp',
+							url: runner,
+							async: false,
+							contentType: "application/json; charset=utf-8",
+							success: function (msg) {
+								//document.write(msg.data.runs[0].place);    
+								// $(document.body).append(msg.data.runs[0].run['times'].primary_t);
+								var name = msg.data.names.international;
+								var nameLink = msg.data.weblink;
+
+
+								document.getElementById("SM641StarCategory").innerHTML = "<a href=" + category +">" + "1 Star"+ "</a>";
+								document.getElementById("SM641StarTime").innerHTML = minutes + ":" + seconds.toFixed(2) ;
+								document.getElementById("SM641StarRunner").innerHTML =   "<a href=" + nameLink +">" + name + "</a>";
+								document.getElementById("SM641StarDate").innerHTML = date;
+								document.getElementById("SM641StarLink").innerHTML =  "<a href=" + link +">" + "Link"+ "</a>";
+
+							}
+				 });
+				 
+				//$(document.body).append("70 star: "+ minutes + ":" + seconds);
+
+
+            }
+ }); // Just an example
+}
+function SM640StarFunction() {
+ $.ajax({
+            type: "POST", //rest Type
+            dataType: 'jsonp', //mispelled
+            url: "https://www.speedrun.com/api/v1/leaderboards/sm64/category/0_Star?top=1",
+            async: false,
+            contentType: "application/json; charset=utf-8",
+            success: function (msg) {
+                //document.write(msg.data.runs[0].place);    
+				// $(document.body).append(msg.data.runs[0].run['times'].primary_t);
+				var time = msg.data.runs[0].run['times'].primary_t;
+				var minutes = Math.floor(time / 60);
+				var seconds = time - minutes * 60;
+				var link = msg.data.runs[0].run.weblink;
+				var runner = msg.data.runs[0].run['players'][0].uri;
+				var date = msg.data.runs[0].run.date;
+				var category = msg.data.weblink;
+				
+				$.ajax({
+							type: "POST",
+							dataType: 'jsonp',
+							url: runner,
+							async: false,
+							contentType: "application/json; charset=utf-8",
+							success: function (msg) {
+								//document.write(msg.data.runs[0].place);    
+								// $(document.body).append(msg.data.runs[0].run['times'].primary_t);
+								var name = msg.data.names.international;
+								var nameLink = msg.data.weblink;
+
+
+								document.getElementById("SM640StarCategory").innerHTML = "<a href=" + category +">" + "0 Star"+ "</a>";
+								document.getElementById("SM640StarTime").innerHTML = minutes + ":" + seconds.toFixed(2) ;
+								document.getElementById("SM640StarRunner").innerHTML =   "<a href=" + nameLink +">" + name + "</a>";
+								document.getElementById("SM640StarDate").innerHTML = date;
+								document.getElementById("SM640StarLink").innerHTML =  "<a href=" + link +">" + "Link"+ "</a>";
+
+							}
+				 });
+				 
+				//$(document.body).append("70 star: "+ minutes + ":" + seconds);
+
+
+            }
+ }); // Just an example
+}
+</script>
+
+<p ></p>
+<!--<p id="SM641Star"></p>
+<p id="SM6416Star"></p>
+<p id="SM6470Star"></p>
+<p id="SM64120Star"></p>-->
+
+
+
+<div class="container">
+  <h2>Super Mario 64</h2>
+  
+  <ul class="list-group list-group-horizontal">
+    <a href="https://www.speedrun.com/sm64"><li class="list-group-item">Speedrun.com</li></a>
+    <a href="https://www.twitch.tv/directory/game/Super%20Mario%2064"><li class="list-group-item">Twitch</li></a>
+	<a href="https://mixer.com/browse/games/122889/super-mario-64"><li class="list-group-item">Mixer</li></a>
+    <a href="https://discordapp.com/invite/0Si1OtnB7Ylmwkwr"><li class="list-group-item">Discord</li></a>
+    <a href="https://www.mariowiki.com/Super_Mario_64"><li class="list-group-item">Mario Wiki</li></a>
+	<a href="https://w.atwiki.jp/sm64/"><li class="list-group-item">Atwiki</li></a>
+	<a href="https://sites.google.com/site/sm64gameshark/"><li class="list-group-item">GameShark codes</li></a>
+  </ul><br>
+  <p>World Records via Speedrun.com API</p>            
+  <table class="table table-hover table-condensed">
+    <thead>
+      <tr>
+        <th>Category</th>
+        <th>Time</th>
+        <th>Runner</th>
+		<th>Date</th>
+		<th>Video</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td id="SM640StarCategory"></td>
+        <td id="SM640StarTime"></td>
+        <td  id="SM640StarRunner"></td>
+		<td id="SM640StarDate"></td>
+		<td id="SM640StarLink">  </td>
+
+
+      </tr>
+      <tr>
+        <td id="SM641StarCategory"></td>
+        <td id="SM641StarTime"></td>
+        <td  id="SM641StarRunner"></td>
+		<td id="SM641StarDate"></td>
+		<td id="SM641StarLink">  </td>
+      </tr>
+      <tr>
+        <td id="SM6416StarCategory"></td>
+        <td id="SM6416StarTime"></td>
+        <td  id="SM6416StarRunner"></td>
+		<td id="SM6416StarDate"></td>
+		<td id="SM6416StarLink">  </td>
+      </tr>
+	   <tr>
+        <td id="SM6470StarCategory"></td>
+        <td id="SM6470StarTime"></td>
+        <td  id="SM6470StarRunner"></td>
+		<td id="SM6470StarDate"></td>
+		<td id="SM6470StarLink">  </td>
+      </tr>
+	  	   <tr>
+        <td id="SM64120StarCategory"></td>
+        <td id="SM64120StarTime"></td>
+        <td  id="SM64120StarRunner"></td>
+		<td id="SM64120StarDate"></td>
+		<td id="SM64120StarLink">  </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<script>
+
+// Top SM64
+$.ajax({
+  type: 'GET', 
+  url: 'https://api.twitch.tv/kraken/search/streams?q=Super Mario 64',
+  headers: {'Client-ID': 'i6mbqlyzfxnakam9a0b9nqah47s9km'},
+  success: function(json) {
+  		var topImageURLSM64 = json.streams[0].preview.medium;
+		var topStreamerNameSM64 = json.streams[0].channel.display_name;
+		var topUserLogoSM64 = json.streams[0].channel.logo;
+		var topUserStatusSM64 = json.streams[0].channel.status;
+		var topUserViewersSM64 = json.streams[0].viewers;
+
+    console.log(json);
+	document.getElementById("topUserLogoSM64").src = topUserLogoSM64; 
+	document.getElementById("topImageURLSM64").src = topImageURLSM64; 
+	document.getElementById("topStreamerSM64").innerHTML = topStreamerNameSM64; 
+	document.getElementById("topUserStatusSM64").innerHTML = topUserStatusSM64; 
+	document.getElementById("topUserViewersSM64").innerHTML = topUserViewersSM64; 
+	document.getElementById("topStreamerSM64Link").href = "https://twitch.tv/"+ topStreamerNameSM64;
+		$(document).ready(function(){
+		  $("topImageURLSM64").click(function(){
+			$("img:first").replaceWith("Hello world!");
+		  });
+		});
+}});
+
+
+
+// 2nd SM64
+$.ajax({
+  type: 'GET', 
+  url: 'https://api.twitch.tv/kraken/search/streams?q=Super Mario 64',
+  headers: {'Client-ID': 'i6mbqlyzfxnakam9a0b9nqah47s9km'},
+  success: function(json) {
+  		var secondImageURLSM64 = json.streams[1].preview.medium;
+		var secondStreamerNameSM64 = json.streams[1].channel.display_name;
+		var secondUserLogoSM64 = json.streams[1].channel.logo;
+		var secondUserStatusSM64 = json.streams[1].channel.status;
+		var secondUserViewersSM64 = json.streams[1].viewers;
+
+    console.log(json);
+	document.getElementById("secondUserLogoSM64").src = secondUserLogoSM64; 
+	document.getElementById("secondImageURLSM64").src = secondImageURLSM64; 
+	document.getElementById("secondStreamerSM64").innerHTML = secondStreamerNameSM64; 
+	document.getElementById("secondUserStatusSM64").innerHTML = secondUserStatusSM64; 
+	document.getElementById("secondUserViewersSM64").innerHTML = secondUserViewersSM64; 
+	document.getElementById("secondStreamerSM64Link").href = "https://twitch.tv/"+ secondStreamerNameSM64;
+}});
+
+// 3rd SM64
+$.ajax({
+  type: 'GET', 
+  url: 'https://api.twitch.tv/kraken/search/streams?q=Super Mario 64',
+  headers: {'Client-ID': 'i6mbqlyzfxnakam9a0b9nqah47s9km'},
+  success: function(json) {
+  		var thirdImageURLSM64 = json.streams[2].preview.medium;
+		var thirdStreamerNameSM64 = json.streams[2].channel.display_name;
+		var thirdUserLogoSM64 = json.streams[2].channel.logo;
+		var thirdUserStatusSM64 = json.streams[2].channel.status;
+		var thirdUserViewersSM64 = json.streams[2].viewers;
+
+    console.log(json);
+	document.getElementById("thirdUserLogoSM64").src = thirdUserLogoSM64; 
+	document.getElementById("thirdImageURLSM64").src = thirdImageURLSM64; 
+	document.getElementById("thirdStreamerSM64").innerHTML = thirdStreamerNameSM64; 
+	document.getElementById("thirdUserStatusSM64").innerHTML = thirdUserStatusSM64; 
+	document.getElementById("thirdUserViewersSM64").innerHTML = thirdUserViewersSM64; 
+	document.getElementById("thirdStreamerSM64Link").href = "https://twitch.tv/"+ thirdStreamerNameSM64;
+}});
+
+// 4th SM64
+$.ajax({
+  type: 'GET', 
+  url: 'https://api.twitch.tv/kraken/search/streams?q=Super Mario 64',
+  headers: {'Client-ID': 'i6mbqlyzfxnakam9a0b9nqah47s9km'},
+  success: function(json) {
+  		var fourthImageURLSM64 = json.streams[3].preview.medium;
+		var fourthStreamerNameSM64 = json.streams[3].channel.display_name;
+		var fourthUserLogoSM64 = json.streams[3].channel.logo;
+		var fourthUserStatusSM64 = json.streams[3].channel.status;
+		var fourthUserViewersSM64 = json.streams[3].viewers;
+
+    console.log(json);
+	document.getElementById("fourthUserLogoSM64").src = fourthUserLogoSM64; 
+	document.getElementById("fourthImageURLSM64").src = fourthImageURLSM64; 
+	document.getElementById("fourthStreamerSM64").innerHTML = fourthStreamerNameSM64; 
+	document.getElementById("fourthUserStatusSM64").innerHTML = fourthUserStatusSM64; 
+	document.getElementById("fourthUserViewersSM64").innerHTML = fourthUserViewersSM64; 
+	document.getElementById("fourthStreamerSM64Link").href = "https://twitch.tv/"+ fourthStreamerNameSM64;
+}});
+
+// 5th SM64
+$.ajax({
+  type: 'GET', 
+  url: 'https://api.twitch.tv/kraken/search/streams?q=Super Mario 64',
+  headers: {'Client-ID': 'i6mbqlyzfxnakam9a0b9nqah47s9km'},
+  success: function(json) {
+  		var fifthImageURLSM64 = json.streams[4].preview.medium;
+		var fifthStreamerNameSM64 = json.streams[4].channel.display_name;
+		var fifthUserLogoSM64 = json.streams[4].channel.logo;
+		var fifthUserStatusSM64 = json.streams[4].channel.status;
+		var fifthUserViewersSM64 = json.streams[4].viewers;
+
+    console.log(json);
+	document.getElementById("fifthUserLogoSM64").src = fifthUserLogoSM64; 
+	document.getElementById("fifthImageURLSM64").src = fifthImageURLSM64; 
+	document.getElementById("fifthStreamerSM64").innerHTML = fifthStreamerNameSM64; 
+	document.getElementById("fifthUserStatusSM64").innerHTML = fifthUserStatusSM64; 
+	document.getElementById("fifthUserViewersSM64").innerHTML = fifthUserViewersSM64; 
+	document.getElementById("fifthStreamerSM64Link").href = "https://twitch.tv/"+ fifthStreamerNameSM64;
+}});
+
+// SM64 6th
+$.ajax({
+  type: 'GET', 
+  url: 'https://api.twitch.tv/kraken/search/streams?q=Super Mario 64',
+  headers: {'Client-ID': 'i6mbqlyzfxnakam9a0b9nqah47s9km'},
+  success: function(json) {
+  		var sixthImageURLSM64 = json.streams[5].preview.medium;
+		var sixthStreamerNameSM64 = json.streams[5].channel.display_name;
+		var sixthUserLogoSM64 = json.streams[5].channel.logo;
+		var sixthUserStatusSM64 = json.streams[5].channel.status;
+		var sixthUserViewersSM64 = json.streams[5].viewers;
+
+    console.log(json);
+	document.getElementById("sixthUserLogoSM64").src = sixthUserLogoSM64; 
+	document.getElementById("sixthImageURLSM64").src = sixthImageURLSM64; 
+	document.getElementById("sixthStreamerSM64").innerHTML = sixthStreamerNameSM64; 
+	document.getElementById("sixthUserStatusSM64").innerHTML = sixthUserStatusSM64; 
+	document.getElementById("sixthUserViewersSM64").innerHTML = sixthUserViewersSM64; 
+	document.getElementById("sixthStreamerSM64Link").href = "https://twitch.tv/"+ sixthStreamerNameSM64;
+}});
+</script>
+<div class="container"><!-- First row SM64 --->
+
+  <div class="card-deck">
+    <div class="card bg-basic">
+      <div class="card-body text-center">
+        <p class="card-text">
+		
+			<img id="topImageURLSM64"/>
+			<div style="float:left; text-align:left;">
+			<img style="height:32px; clear:none; border-radius:50%" id="topUserLogoSM64"/>
+			<a id="topStreamerSM64Link" href="#"><span style="font-weight:bold" id="topUserStatusSM64"></span> <br>
+			<span id="topStreamerSM64"></span> - <span id="topUserViewersSM64"></span> viewers
+			</div>
+		</p></a>
+    </div>
+    </div>
+	
+	
+
+    <div class="card bg-basic">
+      <div class="card-body text-center">
+        <a id="secondStreamerSM64Link" href="#"><p class="card-text">
+		
+			<img id="secondImageURLSM64"/>
+			<div style="float:left; text-align:left;">
+			<img style="height:32px; clear:none; border-radius:50%" id="secondUserLogoSM64"/>
+			<span style="font-weight:bold" id="secondUserStatusSM64"></span> <br>
+			<span id="secondStreamerSM64"></span> - <span id="secondUserViewersSM64"></span> viewers
+			</div>
+		</p></a>
+    </div>
+    </div>
+    
+    <div class="card bg-basic">
+      <div class="card-body text-center">
+        <a id="thirdStreamerSM64Link" href="#"><p class="card-text">
+		
+			<img id="thirdImageURLSM64"/>
+			<div style="float:left; text-align:left;">
+			<img style="height:32px; clear:none; border-radius:50%" id="thirdUserLogoSM64"/>
+			<span style="font-weight:bold" id="thirdUserStatusSM64"></span> <br>
+			<span id="thirdStreamerSM64"></span> - <span id="thirdUserViewersSM64"></span> viewers
+			</div>
+		</p></a>
+    </div>
+    </div>
+    </div>
+	</div>
+</div>
+
+<div class="container"><!-- Second row SM64 --->
+
+  <div class="card-deck">
+    <div class="card bg-basic">
+      <div class="card-body text-center">
+        <a id="fourthStreamerSM64Link" href="#"><p class="card-text">
+		
+			<img id="fourthImageURLSM64"/>
+			<div style="float:left; text-align:left;">
+			<img style="height:32px; clear:none; border-radius:50%" id="fourthUserLogoSM64"/>
+			<span style="font-weight:bold" id="fourthUserStatusSM64"></span> <br>
+			<span id="fourthStreamerSM64"></span> - <span id="fourthUserViewersSM64"></span> viewers
+			</div>
+		</p></a>
+    </div>
+    </div>
+	
+	
+
+    <div class="card bg-basic">
+      <div class="card-body text-center">
+             <a id="fifthStreamerSM64Link" href="#"><p class="card-text">
+		
+			<img id="fifthImageURLSM64"/>
+			<div style="float:left; text-align:left;">
+			<img style="height:32px; clear:none; border-radius:50%" id="fifthUserLogoSM64"/>
+			<span style="font-weight:bold" id="fifthUserStatusSM64"></span> <br>
+			<span id="fifthStreamerSM64"></span> - <span id="fifthUserViewersSM64"></span> viewers
+			</div>
+		</p></a>
+    </div>
+    </div>
+    
+    <div class="card bg-basic">
+      <div class="card-body text-center">
+                     <a id="sixthStreamerSM64Link" href="#"><p class="card-text">
+		
+			<img id="sixthImageURLSM64"/>
+			<div style="float:left; text-align:left;">
+			<img style="height:32px; clear:none; border-radius:50%" id="sixthUserLogoSM64"/>
+			<span style="font-weight:bold" id="sixthUserStatusSM64"></span> <br>
+			<span id="sixthStreamerSM64"></span> - <span id="sixthUserViewersSM64"></span> viewers
+			</div>
+		</p></a>
+    </div>
+    </div>
+    </div>
+	</div>
+</div>
+</body>
+</html>

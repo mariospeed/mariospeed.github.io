@@ -272,15 +272,6 @@ function SM640StarFunction() {
  }); // Just an example
 }
 </script>
-
-<p ></p>
-<!--<p id="SM641Star"></p>
-<p id="SM6416Star"></p>
-<p id="SM6470Star"></p>
-<p id="SM64120Star"></p>-->
-
-
-
 <div class="container">
   <h2>Super Mario 64</h2>
   
@@ -298,9 +289,11 @@ function SM640StarFunction() {
 	  <div class="dropdown-menu">
 	  <h5 class="dropdown-header">General</h5>
 		<a class="dropdown-item" href="https://kb.speeddemosarchive.com/Super_Mario_64">SDA Knowledge Base</a>
+		<a class="dropdown-item" href="http://tasvideos.org/GameResources/N64/SuperMario64.html">TASVideos.org</a>
 		<a class="dropdown-item" href="http://pastebin.com/NFKhPBGn">ZFG speedrun tips</a>
 		<a class="dropdown-item" href="https://www.youtube.com/watch?v=nXNy7MQ6hGs">BlueBob beginner tips video</a>
 		<a class="dropdown-item" href="http://www.speedrun.com/sm64/guides">Speedrun.com guides</a>
+		<a class="dropdown-item" href="https://tcrf.net/Super_Mario_64_(Nintendo_64)">The Cutting Room Floor Wiki</a>
       <h5 class="dropdown-header">Setup</h5>
 		<a class="dropdown-item" href="https://docs.google.com/document/d/1TQ9MFbdSRZX_W329Vz72Ddbrr-EoW26dHdglNMzZTrs/edit">Buying guide</a>
 		<a class="dropdown-item" href="https://docs.google.com/document/d/1Op8aK2RecKhjRJB7juOvwUjkXwBbL1eipxUpixBS2c4/edit">Retro streaming guide</a>
@@ -309,6 +302,8 @@ function SM640StarFunction() {
 		<a class="dropdown-item" href="https://docs.google.com/spreadsheets/d/1J20aivGnvLlAuyRIMMclIFUmrkHXUzgcDmYa31gdtCI/">Ultimate Star spreadsheet</a>
 		<a class="dropdown-item" href="https://sites.google.com/site/sm64gameshark/">GameShark codes</a>
 		<a class="dropdown-item" href="http://sm64.iotku.pw/VC-Gecko-Codes/">VC codes</a>
+
+		
 
 	  </div>
   </ul><br>
@@ -369,7 +364,11 @@ function SM640StarFunction() {
 // Top SM64
 $.ajax({
   type: 'GET', 
+  dataType: 'jsonp',
+  async: false,
+
   url: 'https://api.twitch.tv/kraken/search/streams?q=Super Mario 64',
+  crossDomain: true,
   headers: {'Client-ID': 'i6mbqlyzfxnakam9a0b9nqah47s9km'},
   success: function(json) {
   		var topImageURLSM64 = json.streams[0].preview.medium;

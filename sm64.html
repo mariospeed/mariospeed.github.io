@@ -355,235 +355,225 @@ function SM640StarFunction() {
       </tr>
     </tbody>
   </table>
-</div><!--
-<!--<script>
-
-// Top SM64
-$.ajax({
-  type: 'GET', 
-  url: 'https://api.twitch.tv/kraken/search/streams?q=Super Mario 64',
-  headers: {'Client-ID': 'i6mbqlyzfxnakam9a0b9nqah47s9km'},
-  success: function(json) {
-  		var topImageURLSM64 = json.streams[0].preview.medium;
-		var topStreamerNameSM64 = json.streams[0].channel.display_name;
-		var topUserLogoSM64 = json.streams[0].channel.logo;
-		var topUserStatusSM64 = json.streams[0].channel.status;
-		var topUserViewersSM64 = json.streams[0].viewers;
-
-    console.log(json);
-	document.getElementById("topUserLogoSM64").src = topUserLogoSM64; 
-	document.getElementById("topImageURLSM64").src = topImageURLSM64; 
-	document.getElementById("topStreamerSM64").innerHTML = topStreamerNameSM64; 
-	document.getElementById("topUserStatusSM64").innerHTML = topUserStatusSM64; 
-	document.getElementById("topUserViewersSM64").innerHTML = topUserViewersSM64; 
-	document.getElementById("topStreamerSM64Link").href = "https://twitch.tv/"+ topStreamerNameSM64;
-}});
-
-
-
-// 2nd SM64
-$.ajax({
-  type: 'GET', 
-  url: 'https://api.twitch.tv/kraken/search/streams?q=Super Mario 64',
-  headers: {'Client-ID': 'i6mbqlyzfxnakam9a0b9nqah47s9km'},
-  success: function(json) {
-  		var secondImageURLSM64 = json.streams[1].preview.medium;
-		var secondStreamerNameSM64 = json.streams[1].channel.display_name;
-		var secondUserLogoSM64 = json.streams[1].channel.logo;
-		var secondUserStatusSM64 = json.streams[1].channel.status;
-		var secondUserViewersSM64 = json.streams[1].viewers;
-
-    console.log(json);
-	document.getElementById("secondUserLogoSM64").src = secondUserLogoSM64; 
-	document.getElementById("secondImageURLSM64").src = secondImageURLSM64; 
-	document.getElementById("secondStreamerSM64").innerHTML = secondStreamerNameSM64; 
-	document.getElementById("secondUserStatusSM64").innerHTML = secondUserStatusSM64; 
-	document.getElementById("secondUserViewersSM64").innerHTML = secondUserViewersSM64; 
-	document.getElementById("secondStreamerSM64Link").href = "https://twitch.tv/"+ secondStreamerNameSM64;
-}});
-
-// 3rd SM64
-$.ajax({
-  type: 'GET', 
-  url: 'https://api.twitch.tv/kraken/search/streams?q=Super Mario 64',
-  headers: {'Client-ID': 'i6mbqlyzfxnakam9a0b9nqah47s9km'},
-  success: function(json) {
-  		var thirdImageURLSM64 = json.streams[2].preview.medium;
-		var thirdStreamerNameSM64 = json.streams[2].channel.display_name;
-		var thirdUserLogoSM64 = json.streams[2].channel.logo;
-		var thirdUserStatusSM64 = json.streams[2].channel.status;
-		var thirdUserViewersSM64 = json.streams[2].viewers;
-
-    console.log(json);
-	document.getElementById("thirdUserLogoSM64").src = thirdUserLogoSM64; 
-	document.getElementById("thirdImageURLSM64").src = thirdImageURLSM64; 
-	document.getElementById("thirdStreamerSM64").innerHTML = thirdStreamerNameSM64; 
-	document.getElementById("thirdUserStatusSM64").innerHTML = thirdUserStatusSM64; 
-	document.getElementById("thirdUserViewersSM64").innerHTML = thirdUserViewersSM64; 
-	document.getElementById("thirdStreamerSM64Link").href = "https://twitch.tv/"+ thirdStreamerNameSM64;
-}});
-
-// 4th SM64
-$.ajax({
-  type: 'GET', 
-  url: 'https://api.twitch.tv/kraken/search/streams?q=Super Mario 64',
-  headers: {'Client-ID': 'i6mbqlyzfxnakam9a0b9nqah47s9km'},
-  success: function(json) {
-  		var fourthImageURLSM64 = json.streams[3].preview.medium;
-		var fourthStreamerNameSM64 = json.streams[3].channel.display_name;
-		var fourthUserLogoSM64 = json.streams[3].channel.logo;
-		var fourthUserStatusSM64 = json.streams[3].channel.status;
-		var fourthUserViewersSM64 = json.streams[3].viewers;
-
-    console.log(json);
-	document.getElementById("fourthUserLogoSM64").src = fourthUserLogoSM64; 
-	document.getElementById("fourthImageURLSM64").src = fourthImageURLSM64; 
-	document.getElementById("fourthStreamerSM64").innerHTML = fourthStreamerNameSM64; 
-	document.getElementById("fourthUserStatusSM64").innerHTML = fourthUserStatusSM64; 
-	document.getElementById("fourthUserViewersSM64").innerHTML = fourthUserViewersSM64; 
-	document.getElementById("fourthStreamerSM64Link").href = "https://twitch.tv/"+ fourthStreamerNameSM64;
-}});
-
-// 5th SM64
-$.ajax({
-  type: 'GET', 
-  url: 'https://api.twitch.tv/kraken/search/streams?q=Super Mario 64',
-  headers: {'Client-ID': 'i6mbqlyzfxnakam9a0b9nqah47s9km'},
-  success: function(json) {
-  		var fifthImageURLSM64 = json.streams[4].preview.medium;
-		var fifthStreamerNameSM64 = json.streams[4].channel.display_name;
-		var fifthUserLogoSM64 = json.streams[4].channel.logo;
-		var fifthUserStatusSM64 = json.streams[4].channel.status;
-		var fifthUserViewersSM64 = json.streams[4].viewers;
-
-    console.log(json);
-	document.getElementById("fifthUserLogoSM64").src = fifthUserLogoSM64; 
-	document.getElementById("fifthImageURLSM64").src = fifthImageURLSM64; 
-	document.getElementById("fifthStreamerSM64").innerHTML = fifthStreamerNameSM64; 
-	document.getElementById("fifthUserStatusSM64").innerHTML = fifthUserStatusSM64; 
-	document.getElementById("fifthUserViewersSM64").innerHTML = fifthUserViewersSM64; 
-	document.getElementById("fifthStreamerSM64Link").href = "https://twitch.tv/"+ fifthStreamerNameSM64;
-}});
-
-// SM64 6th
-$.ajax({
-  type: 'GET', 
-  url: 'https://api.twitch.tv/kraken/search/streams?q=Super Mario 64',
-  headers: {'Client-ID': 'i6mbqlyzfxnakam9a0b9nqah47s9km'},
-  success: function(json) {
-  		var sixthImageURLSM64 = json.streams[5].preview.medium;
-		var sixthStreamerNameSM64 = json.streams[5].channel.display_name;
-		var sixthUserLogoSM64 = json.streams[5].channel.logo;
-		var sixthUserStatusSM64 = json.streams[5].channel.status;
-		var sixthUserViewersSM64 = json.streams[5].viewers;
-
-    console.log(json);
-	document.getElementById("sixthUserLogoSM64").src = sixthUserLogoSM64; 
-	document.getElementById("sixthImageURLSM64").src = sixthImageURLSM64; 
-	document.getElementById("sixthStreamerSM64").innerHTML = sixthStreamerNameSM64; 
-	document.getElementById("sixthUserStatusSM64").innerHTML = sixthUserStatusSM64; 
-	document.getElementById("sixthUserViewersSM64").innerHTML = sixthUserViewersSM64; 
-	document.getElementById("sixthStreamerSM64Link").href = "https://twitch.tv/"+ sixthStreamerNameSM64;
-}});
-</script>
-<div class="container"><!-- First row SM64 
-
-  <div class="card-deck">
-    <div class="card bg-basic">
-      <div class="card-body text-center">
-        <p class="card-text">
-		
-			<img id="topImageURLSM64"/>
-			<div style="float:left; text-align:left;">
-			<img style="height:32px; clear:none; border-radius:50%" id="topUserLogoSM64"/>
-			<a id="topStreamerSM64Link" href="#"><span style="font-weight:bold" id="topUserStatusSM64"></span> <br>
-			<span id="topStreamerSM64"></span> - <span id="topUserViewersSM64"></span> viewers
-			</div>
-		</p></a>
-    </div>
-    </div>
-	
-	
-
-    <div class="card bg-basic">
-      <div class="card-body text-center">
-        <a id="secondStreamerSM64Link" href="#"><p class="card-text">
-		
-			<img id="secondImageURLSM64"/>
-			<div style="float:left; text-align:left;">
-			<img style="height:32px; clear:none; border-radius:50%" id="secondUserLogoSM64"/>
-			<span style="font-weight:bold" id="secondUserStatusSM64"></span> <br>
-			<span id="secondStreamerSM64"></span> - <span id="secondUserViewersSM64"></span> viewers
-			</div>
-		</p></a>
-    </div>
-    </div>
-    
-    <div class="card bg-basic">
-      <div class="card-body text-center">
-        <a id="thirdStreamerSM64Link" href="#"><p class="card-text">
-		
-			<img id="thirdImageURLSM64"/>
-			<div style="float:left; text-align:left;">
-			<img style="height:32px; clear:none; border-radius:50%" id="thirdUserLogoSM64"/>
-			<span style="font-weight:bold" id="thirdUserStatusSM64"></span> <br>
-			<span id="thirdStreamerSM64"></span> - <span id="thirdUserViewersSM64"></span> viewers
-			</div>
-		</p></a>
-    </div>
-    </div>
-    </div>
-	</div>
 </div>
+<script>
 
-<div class="container"><!-- Second row SM64 
+// Twitch API data retrieval
+$.ajax({
+  type: 'GET', 
+  url: 'https://api.twitch.tv/helix/streams?game_id=2692',
+  headers: {'Client-ID': 'i6mbqlyzfxnakam9a0b9nqah47s9km'},
+  success: function(json) {
+  
+	// General Twitch data
+		var totalStreamers = json.data.length;
+		document.getElementById("totalStreamers").innerHTML = totalStreamers;
+		
+		/*
+		var totalViewers = "";
+		var totalViewersSum = "";
+			for (i = 0; i < json.data.length; i++) {
+			  totalViewersArray = json.data[i].viewer_count;
+			  console.log(totalViewersArray);
+			  parseInt(totalViewersArray)
+			  totalViewersSum += parseInt(totalViewersArray++);
+			  console.log(totalViewersSum);
+			}
+		*/
+
+	
+	// First SM64 stream variables
+  		var firstImageURLSM64Data = json.data[0].thumbnail_url;
+		var repfirstImageURLSM64Data = firstImageURLSM64Data.replace("{width}x{height}", "300x200");
+		var firstSM64Streamer = json.data[0].user_name;
+		var firstSM64Viewers = json.data[0].viewer_count;
+		var firstSM64Title = json.data[0].title;
+
+
+	// sample 'https://api.twitch.tv/helix/games?name=Okami'
+	console.log(json)
+	
+	// First SM64 Stream replace
+	document.getElementById("repfirstImageURLSM64Data").src = repfirstImageURLSM64Data;
+	document.getElementById("repfirstImageURLSM64Data").src = repfirstImageURLSM64Data;
+	document.getElementById("firstSM64Link").href = "https://twitch.tv/"+ firstSM64Streamer;
+	document.getElementById("firstSM64Streamer").innerHTML = firstSM64Streamer;
+	document.getElementById("firstSM64Viewers").innerHTML = firstSM64Viewers;
+	document.getElementById("firstSM64Title").innerHTML = firstSM64Title;
+
+	//////////////
+	
+	// Second SM64 stream variables
+  		var secondImageURLSM64Data = json.data[1].thumbnail_url;
+		var repsecondImageURLSM64Data = secondImageURLSM64Data.replace("{width}x{height}", "300x200");
+		var secondSM64Streamer = json.data[1].user_name;
+		var secondSM64Viewers = json.data[1].viewer_count;
+		var secondSM64Title = json.data[1].title;
+	
+	// Second SM64 Stream replace
+	document.getElementById("repsecondImageURLSM64Data").src = repsecondImageURLSM64Data;
+	document.getElementById("repsecondImageURLSM64Data").src = repsecondImageURLSM64Data;
+	document.getElementById("secondSM64Link").href = "https://twitch.tv/"+ secondSM64Streamer;
+	document.getElementById("secondSM64Streamer").innerHTML = secondSM64Streamer;
+	document.getElementById("secondSM64Viewers").innerHTML = secondSM64Viewers;
+	document.getElementById("secondSM64Title").innerHTML = secondSM64Title;
+	
+	
+	///////////////
+	
+	// Third SM64 stream variables
+		var thirdImageURLSM64Data = json.data[2].thumbnail_url;
+		var repthirdImageURLSM64Data = thirdImageURLSM64Data.replace("{width}x{height}", "300x200");
+		var thirdSM64Streamer = json.data[2].user_name;
+		var thirdSM64Viewers = json.data[2].viewer_count;
+		var thirdSM64Title = json.data[2].title;
+		
+	// Third SM64 Stream replace
+	document.getElementById("repthirdImageURLSM64Data").src = repthirdImageURLSM64Data;
+	document.getElementById("repthirdImageURLSM64Data").src = repthirdImageURLSM64Data;
+	document.getElementById("thirdSM64Link").href = "https://twitch.tv/"+ thirdSM64Streamer;
+	document.getElementById("thirdSM64Streamer").innerHTML = thirdSM64Streamer;
+	document.getElementById("thirdSM64Viewers").innerHTML = thirdSM64Viewers;
+	document.getElementById("thirdSM64Title").innerHTML = thirdSM64Title;
+	
+	///////////////
+	
+	// Fourth SM64 stream variables
+		var fourthImageURLSM64Data = json.data[3].thumbnail_url;
+		var repfourthImageURLSM64Data = fourthImageURLSM64Data.replace("{width}x{height}", "300x200");
+		var fourthSM64Streamer = json.data[3].user_name;
+		var fourthSM64Viewers = json.data[3].viewer_count;
+		var fourthSM64Title = json.data[3].title;
+		
+	// Fourth SM64 Stream replace
+	document.getElementById("repfourthImageURLSM64Data").src = repfourthImageURLSM64Data;
+	document.getElementById("repfourthImageURLSM64Data").src = repfourthImageURLSM64Data;
+	document.getElementById("fourthSM64Link").href = "https://twitch.tv/"+ fourthSM64Streamer;
+	document.getElementById("fourthSM64Streamer").innerHTML = fourthSM64Streamer;
+	document.getElementById("fourthSM64Viewers").innerHTML = fourthSM64Viewers;
+	document.getElementById("fourthSM64Title").innerHTML = fourthSM64Title;
+	
+	// Fifth SM64 stream variables
+		var fifthImageURLSM64Data = json.data[4].thumbnail_url;
+		var repfifthImageURLSM64Data = fifthImageURLSM64Data.replace("{width}x{height}", "300x200");
+		var fifthSM64Streamer = json.data[4].user_name;
+		var fifthSM64Viewers = json.data[4].viewer_count;
+		var fifthSM64Title = json.data[4].title;
+		
+	// Fifth SM64 Stream replace
+	document.getElementById("repfifthImageURLSM64Data").src = repfifthImageURLSM64Data;
+	document.getElementById("repfifthImageURLSM64Data").src = repfifthImageURLSM64Data;
+	document.getElementById("fifthSM64Link").href = "https://twitch.tv/"+ fifthSM64Streamer;
+	document.getElementById("fifthSM64Streamer").innerHTML = fifthSM64Streamer;
+	document.getElementById("fifthSM64Viewers").innerHTML = fifthSM64Viewers;
+	document.getElementById("fifthSM64Title").innerHTML = fifthSM64Title;
+	
+	// sixth SM64 stream variables
+		var sixthImageURLSM64Data = json.data[5].thumbnail_url;
+		var repsixthImageURLSM64Data = sixthImageURLSM64Data.replace("{width}x{height}", "300x200");
+		var sixthSM64Streamer = json.data[5].user_name;
+		var sixthSM64Viewers = json.data[5].viewer_count;
+		var sixthSM64Title = json.data[5].title;
+		
+	// sixth SM64 Stream replace
+	document.getElementById("repsixthImageURLSM64Data").src = repsixthImageURLSM64Data;
+	document.getElementById("repsixthImageURLSM64Data").src = repsixthImageURLSM64Data;
+	document.getElementById("sixthSM64Link").href = "https://twitch.tv/"+ sixthSM64Streamer;
+	document.getElementById("sixthSM64Streamer").innerHTML = sixthSM64Streamer;
+	document.getElementById("sixthSM64Viewers").innerHTML = sixthSM64Viewers;
+	document.getElementById("sixthSM64Title").innerHTML = sixthSM64Title;
+}});
+
+
+</script>
+<div class="container">
+
+<div class="container">
+
+    <p>   Twitch       <br> <span id="totalStreamers"></span> live streams<!-- with <span id="totalViewers"></span> viewers--></p>
+
 
   <div class="card-deck">
-    <div class="card bg-basic">
+    <div class="card bg-light">
       <div class="card-body text-center">
-        <a id="fourthStreamerSM64Link" href="#"><p class="card-text">
-		
-			<img id="fourthImageURLSM64"/>
-			<div style="float:left; text-align:left;">
-			<img style="height:32px; clear:none; border-radius:50%" id="fourthUserLogoSM64"/>
-			<span style="font-weight:bold" id="fourthUserStatusSM64"></span> <br>
-			<span id="fourthStreamerSM64"></span> - <span id="fourthUserViewersSM64"></span> viewers
+		<div style="float:left; text-align:left;">
+			<img id="repfirstImageURLSM64Data"/>
+			
+			<a id="firstSM64Link">
+			<b><span style=" word-wrap: break-word;" id="firstSM64Title"></b></span><br>
+			<span id="firstSM64Streamer"></span> - <span id="firstSM64Viewers"></span> viewers</a>
 			</div>
 		</p></a>
+      </div>
     </div>
+    <div class="card bg-light">
+      <div class="card-body text-center">
+        <div style="float:left; text-align:left;">
+			<img id="repsecondImageURLSM64Data"/>
+			
+			<a id="secondSM64Link">
+			<b><span style=" word-wrap: break-word;" id="secondSM64Title"></b></span><br>
+			<span id="secondSM64Streamer"></span> - <span id="secondSM64Viewers"></span> viewers</a>
+			</div>
+		</p></a>
+      </div>
     </div>
-	
-	
+    <div class="card bg-light">
+      <div class="card-body text-center">
+                <div style="float:left; text-align:left;">
+			<img id="repthirdImageURLSM64Data"/>
+			
+			<a id="thirdSM64Link">
+			<b><span style=" word-wrap: break-word;" id="thirdSM64Title"></b></span><br>
+			<span id="thirdSM64Streamer"></span> - <span id="thirdSM64Viewers"></span> viewers</a>
+			</div>
+		</p></a>
+      </div>
+    </div>
+  </div>
+<div class="card-deck"> <!-- Second row Twitch streams -->
+	    <div class="card bg-light">
+      <div class="card-body text-center">
+            <div style="float:left; text-align:left;">
+			<img id="repfourthImageURLSM64Data"/>
+			
+			<a id="fourthSM64Link">
+			<b><span style=" word-wrap: break-word;" id="fourthSM64Title"></b></span><br>
+			<span id="fourthSM64Streamer"></span> - <span id="fourthSM64Viewers"></span> viewers</a>
+			</div>
+		</p></a>
+      </div>
+    </div>
 
-    <div class="card bg-basic">
-      <div class="card-body text-center">
-             <a id="fifthStreamerSM64Link" href="#"><p class="card-text">
-		
-			<img id="fifthImageURLSM64"/>
-			<div style="float:left; text-align:left;">
-			<img style="height:32px; clear:none; border-radius:50%" id="fifthUserLogoSM64"/>
-			<span style="font-weight:bold" id="fifthUserStatusSM64"></span> <br>
-			<span id="fifthStreamerSM64"></span> - <span id="fifthUserViewersSM64"></span> viewers
+	  <div class="card bg-light">
+		<div class="card-body text-center">
+		    <div style="float:left; text-align:left;">
+			<img id="repfifthImageURLSM64Data"/>
+			
+			<a id="fifthSM64Link">
+			<b><span style=" word-wrap: break-word;" id="fifthSM64Title"></b></span><br>
+			<span id="fifthSM64Streamer"></span> - <span id="fifthSM64Viewers"></span> viewers</a>
 			</div>
 		</p></a>
-    </div>
-    </div>
-    
-    <div class="card bg-basic">
-      <div class="card-body text-center">
-                     <a id="sixthStreamerSM64Link" href="#"><p class="card-text">
-		
-			<img id="sixthImageURLSM64"/>
-			<div style="float:left; text-align:left;">
-			<img style="height:32px; clear:none; border-radius:50%" id="sixthUserLogoSM64"/>
-			<span style="font-weight:bold" id="sixthUserStatusSM64"></span> <br>
-			<span id="sixthStreamerSM64"></span> - <span id="sixthUserViewersSM64"></span> viewers
+		</div>
+	  </div>
+	  <div class="card bg-light">
+		<div class="card-body text-center">
+		 	<div style="float:left; text-align:left;">
+			<img id="repsixthImageURLSM64Data"/>
+			
+			<a id="sixthSM64Link">
+			<b><span style=" word-wrap: break-word;" id="sixthSM64Title"></b></span><br>
+			<span id="sixthSM64Streamer"></span> - <span id="sixthSM64Viewers"></span> viewers</a>
 			</div>
 		</p></a>
-    </div>
-    </div>
-    </div>
+		</div>
+		</div>
+	  </div>
+
 	</div>
-</div>-->
+
+
+</div>
 </body>
 </html>

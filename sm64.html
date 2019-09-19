@@ -366,8 +366,8 @@ $.ajax({
   success: function(json) {
   
 	// General Twitch data
-		var totalStreamers = json.data.length;
-		document.getElementById("totalStreamers").innerHTML = totalStreamers;
+		//var totalStreamers = json.data.length;
+		//document.getElementById("totalStreamers").innerHTML = totalStreamers;
 		
 		/*
 		var totalViewers = "";
@@ -490,7 +490,7 @@ $.ajax({
 
 <div class="container">
 
-    <p>   Twitch       <br> <span id="totalStreamers"></span> live streams<!-- with <span id="totalViewers"></span> viewers--></p>
+    <p>   Twitch      <!-- <br> <span id="totalStreamers"></span> live streams with <span id="totalViewers"></span> viewers--></p>
 
 
   <div class="card-deck">

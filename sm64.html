@@ -57,20 +57,15 @@ $.ajax({
 								// $(document.body).append(msg.data.runs[0].run['times'].primary_t);
 								var name = msg.data.names.international;
 								var nameLink = msg.data.weblink;
-
-
 								document.getElementById("SM6470StarCategory").innerHTML = "<a href=" + category +">" + "70 Star"+ "</a>";
 								document.getElementById("SM6470StarTime").innerHTML = minutes + ":" + seconds.toFixed(2) ;
 								document.getElementById("SM6470StarRunner").innerHTML =   "<a href=" + nameLink +">" + name + "</a>";
 								document.getElementById("SM6470StarDate").innerHTML = date;
 								document.getElementById("SM6470StarLink").innerHTML =  "<a href=" + link +">" + "Link"+ "</a>";
-
 							}
 				 });
 				 
 				//$(document.body).append("70 star: "+ minutes + ":" + seconds);
-
-
             }
  });// // Just an example
     $(document).ready(function() {
@@ -83,7 +78,6 @@ $.ajax({
   });
 });
 }
-
 function SM64120StarFunction() {
  $.ajax({
             type: "POST", //rest Type
@@ -115,24 +109,18 @@ function SM64120StarFunction() {
 								// $(document.body).append(msg.data.runs[0].run['times'].primary_t);
 								var name = msg.data.names.international;
 								var nameLink = msg.data.weblink;
-
-
 								document.getElementById("SM64120StarCategory").innerHTML = "<a href=" + category +">" + "120 Star"+ "</a>";
 								document.getElementById("SM64120StarTime").innerHTML =hours  + ":" + newMin + ":" + seconds.toFixed(2) ;
 								document.getElementById("SM64120StarRunner").innerHTML =   "<a href=" + nameLink +">" + name + "</a>";
 								document.getElementById("SM64120StarDate").innerHTML = date;
 								document.getElementById("SM64120StarLink").innerHTML =  "<a href=" + link +">" + "Link"+ "</a>";
-
 							}
 				 });
 				 
 				//$(document.body).append("70 star: "+ minutes + ":" + seconds);
-
-
             }
  }); // Just an example
 }
-
 function SM6416StarFunction() {
  $.ajax({
             type: "POST", //rest Type
@@ -162,20 +150,15 @@ function SM6416StarFunction() {
 								// $(document.body).append(msg.data.runs[0].run['times'].primary_t);
 								var name = msg.data.names.international;
 								var nameLink = msg.data.weblink;
-
-
 								document.getElementById("SM6416StarCategory").innerHTML = "<a href=" + category +">" + "16 Star"+ "</a>";
 								document.getElementById("SM6416StarTime").innerHTML = minutes + ":0" + seconds.toFixed(2) ;
 								document.getElementById("SM6416StarRunner").innerHTML =   "<a href=" + nameLink +">" + name + "</a>";
 								document.getElementById("SM6416StarDate").innerHTML = date;
 								document.getElementById("SM6416StarLink").innerHTML =  "<a href=" + link +">" + "Link"+ "</a>";
-
 							}
 				 });
 				 
 				//$(document.body).append("70 star: "+ minutes + ":" + seconds);
-
-
             }
  });// Just an example
 }
@@ -208,20 +191,15 @@ function SM641StarFunction() {
 								// $(document.body).append(msg.data.runs[0].run['times'].primary_t);
 								var name = msg.data.names.international;
 								var nameLink = msg.data.weblink;
-
-
 								document.getElementById("SM641StarCategory").innerHTML = "<a href=" + category +">" + "1 Star"+ "</a>";
 								document.getElementById("SM641StarTime").innerHTML = minutes + ":" + seconds.toFixed(2) ;
 								document.getElementById("SM641StarRunner").innerHTML =   "<a href=" + nameLink +">" + name + "</a>";
 								document.getElementById("SM641StarDate").innerHTML = date;
 								document.getElementById("SM641StarLink").innerHTML =  "<a href=" + link +">" + "Link"+ "</a>";
-
 							}
 				 });
 				 
 				//$(document.body).append("70 star: "+ minutes + ":" + seconds);
-
-
             }
  }); // Just an example
 }
@@ -254,20 +232,15 @@ function SM640StarFunction() {
 								// $(document.body).append(msg.data.runs[0].run['times'].primary_t);
 								var name = msg.data.names.international;
 								var nameLink = msg.data.weblink;
-
-
 								document.getElementById("SM640StarCategory").innerHTML = "<a href=" + category +">" + "0 Star"+ "</a>";
 								document.getElementById("SM640StarTime").innerHTML = minutes + ":" + seconds.toFixed(2) ;
 								document.getElementById("SM640StarRunner").innerHTML =   "<a href=" + nameLink +">" + name + "</a>";
 								document.getElementById("SM640StarDate").innerHTML = date;
 								document.getElementById("SM640StarLink").innerHTML =  "<a href=" + link +">" + "Link"+ "</a>";
-
 							}
 				 });
 				 
 				//$(document.body).append("70 star: "+ minutes + ":" + seconds);
-
-
             }
  }); // Just an example
 }
@@ -357,7 +330,6 @@ function SM640StarFunction() {
   </table>
 </div>
 <script>
-
 // Twitch API data retrieval
 $.ajax({
   type: 'GET', 
@@ -380,7 +352,6 @@ $.ajax({
 			  console.log(totalViewersSum);
 			}
 		*/
-
 	
 	// First SM64 stream variables
   		var firstImageURLSM64Data = json.data[0].thumbnail_url;
@@ -388,8 +359,6 @@ $.ajax({
 		var firstSM64Streamer = json.data[0].user_name;
 		var firstSM64Viewers = json.data[0].viewer_count;
 		var firstSM64Title = json.data[0].title;
-
-
 	// sample 'https://api.twitch.tv/helix/games?name=Okami'
 	console.log(json)
 	
@@ -400,7 +369,6 @@ $.ajax({
 	document.getElementById("firstSM64Streamer").innerHTML = firstSM64Streamer;
 	document.getElementById("firstSM64Viewers").innerHTML = firstSM64Viewers;
 	document.getElementById("firstSM64Title").innerHTML = firstSM64Title;
-
 	//////////////
 	
 	// Second SM64 stream variables
@@ -483,8 +451,6 @@ $.ajax({
 	document.getElementById("sixthSM64Viewers").innerHTML = sixthSM64Viewers;
 	document.getElementById("sixthSM64Title").innerHTML = sixthSM64Title;
 }});
-
-
 </script>
 <div class="container">
 
@@ -497,9 +463,9 @@ $.ajax({
     <div class="card bg-light">
       <div class="card-body text-center">
 		<div style="float:left; text-align:left;">
-			<img id="repfirstImageURLSM64Data"/>
+			<a id="firstSM64Link"><img id="repfirstImageURLSM64Data"/>
 			
-			<a id="firstSM64Link">
+			
 			<b><span style=" word-wrap: break-word;" id="firstSM64Title"></b></span><br>
 			<span id="firstSM64Streamer"></span> - <span id="firstSM64Viewers"></span> viewers</a>
 			</div>
@@ -509,9 +475,9 @@ $.ajax({
     <div class="card bg-light">
       <div class="card-body text-center">
         <div style="float:left; text-align:left;">
-			<img id="repsecondImageURLSM64Data"/>
+			<a id="secondSM64Link"><img id="repsecondImageURLSM64Data"/>
 			
-			<a id="secondSM64Link">
+			
 			<b><span style=" word-wrap: break-word;" id="secondSM64Title"></b></span><br>
 			<span id="secondSM64Streamer"></span> - <span id="secondSM64Viewers"></span> viewers</a>
 			</div>
@@ -521,9 +487,9 @@ $.ajax({
     <div class="card bg-light">
       <div class="card-body text-center">
                 <div style="float:left; text-align:left;">
-			<img id="repthirdImageURLSM64Data"/>
+			<a id="thirdSM64Link"><img id="repthirdImageURLSM64Data"/>
 			
-			<a id="thirdSM64Link">
+			
 			<b><span style=" word-wrap: break-word;" id="thirdSM64Title"></b></span><br>
 			<span id="thirdSM64Streamer"></span> - <span id="thirdSM64Viewers"></span> viewers</a>
 			</div>
@@ -535,9 +501,9 @@ $.ajax({
 	    <div class="card bg-light">
       <div class="card-body text-center">
             <div style="float:left; text-align:left;">
-			<img id="repfourthImageURLSM64Data"/>
+			<a id="fourthSM64Link"><img id="repfourthImageURLSM64Data"/>
 			
-			<a id="fourthSM64Link">
+			
 			<b><span style=" word-wrap: break-word;" id="fourthSM64Title"></b></span><br>
 			<span id="fourthSM64Streamer"></span> - <span id="fourthSM64Viewers"></span> viewers</a>
 			</div>
@@ -548,9 +514,9 @@ $.ajax({
 	  <div class="card bg-light">
 		<div class="card-body text-center">
 		    <div style="float:left; text-align:left;">
-			<img id="repfifthImageURLSM64Data"/>
+			<a id="fifthSM64Link"><img id="repfifthImageURLSM64Data"/>
 			
-			<a id="fifthSM64Link">
+			
 			<b><span style=" word-wrap: break-word;" id="fifthSM64Title"></b></span><br>
 			<span id="fifthSM64Streamer"></span> - <span id="fifthSM64Viewers"></span> viewers</a>
 			</div>
@@ -560,9 +526,9 @@ $.ajax({
 	  <div class="card bg-light">
 		<div class="card-body text-center">
 		 	<div style="float:left; text-align:left;">
-			<img id="repsixthImageURLSM64Data"/>
+			<a id="sixthSM64Link"><img id="repsixthImageURLSM64Data"/>
 			
-			<a id="sixthSM64Link">
+			
 			<b><span style=" word-wrap: break-word;" id="sixthSM64Title"></b></span><br>
 			<span id="sixthSM64Streamer"></span> - <span id="sixthSM64Viewers"></span> viewers</a>
 			</div>

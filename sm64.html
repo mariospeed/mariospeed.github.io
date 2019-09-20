@@ -23,6 +23,10 @@
 	#dropItem:focus{
 	color:#91170a;
 	}
+	
+	#firstSM64replaced:hover, #secondSM64replaced:hover, #thirdSM64replaced:hover, #fourthSM64replaced:hover, #fifthSM64replaced:hover, #sixthSM64replaced:hover {
+	cursor:pointer;
+	}
 	</style>
 </head>
 <body onload="SM6470StarFunction(); SM64120StarFunction(); SM6416StarFunction(); SM641StarFunction(); SM640StarFunction()"> 
@@ -352,6 +356,8 @@ $.ajax({
 			  console.log(totalViewersSum);
 			}
 		*/
+		
+
 	
 	// First SM64 stream variables
   		var firstImageURLSM64Data = json.data[0].thumbnail_url;
@@ -369,6 +375,15 @@ $.ajax({
 	document.getElementById("firstSM64Streamer").innerHTML = firstSM64Streamer;
 	document.getElementById("firstSM64Viewers").innerHTML = firstSM64Viewers;
 	document.getElementById("firstSM64Title").innerHTML = firstSM64Title;
+	
+	// First SM64 replace thumbnail with embedded stream onclick
+	document.getElementById("firstSM64replaced").addEventListener("click", function(){
+	  document.getElementById("firstSM64replaced").innerHTML = "<iframe src=https://player.twitch.tv/?channel=" + firstSM64Streamer+ " frameborder='0' allowfullscreen='true' scrolling='no' height='200' width='300'></iframe>";
+	});
+
+
+
+	
 	//////////////
 	
 	// Second SM64 stream variables
@@ -386,6 +401,10 @@ $.ajax({
 	document.getElementById("secondSM64Viewers").innerHTML = secondSM64Viewers;
 	document.getElementById("secondSM64Title").innerHTML = secondSM64Title;
 	
+	// Second SM64 replace thumbnail with embedded stream onclick
+	document.getElementById("secondSM64replaced").addEventListener("click", function(){
+	  document.getElementById("secondSM64replaced").innerHTML = "<iframe src=https://player.twitch.tv/?channel=" + secondSM64Streamer+ " frameborder='0' allowfullscreen='true' scrolling='no' height='200' width='300'></iframe>";
+	});
 	
 	///////////////
 	
@@ -404,9 +423,13 @@ $.ajax({
 	document.getElementById("thirdSM64Viewers").innerHTML = thirdSM64Viewers;
 	document.getElementById("thirdSM64Title").innerHTML = thirdSM64Title;
 	
+	// Second SM64 replace thumbnail with embedded stream onclick
+	document.getElementById("thirdSM64replaced").addEventListener("click", function(){
+	  document.getElementById("thirdSM64replaced").innerHTML = "<iframe src=https://player.twitch.tv/?channel=" + thirdSM64Streamer+ " frameborder='0' allowfullscreen='true' scrolling='no' height='200' width='300'></iframe>";
+	});
 	///////////////
 	
-	// Fourth SM64 stream variables
+	// Fourth SM64 stream variables 
 		var fourthImageURLSM64Data = json.data[3].thumbnail_url;
 		var repfourthImageURLSM64Data = fourthImageURLSM64Data.replace("{width}x{height}", "300x200");
 		var fourthSM64Streamer = json.data[3].user_name;
@@ -420,6 +443,11 @@ $.ajax({
 	document.getElementById("fourthSM64Streamer").innerHTML = fourthSM64Streamer;
 	document.getElementById("fourthSM64Viewers").innerHTML = fourthSM64Viewers;
 	document.getElementById("fourthSM64Title").innerHTML = fourthSM64Title;
+	
+	// Fourth SM64 replace thumbnail with embedded stream onclick
+	document.getElementById("fourthSM64replaced").addEventListener("click", function(){
+	  document.getElementById("fourthSM64replaced").innerHTML = "<iframe src=https://player.twitch.tv/?channel=" + fourthSM64Streamer+ " frameborder='0' allowfullscreen='true' scrolling='no' height='200' width='300'></iframe>";
+	});
 	
 	// Fifth SM64 stream variables
 		var fifthImageURLSM64Data = json.data[4].thumbnail_url;
@@ -436,6 +464,11 @@ $.ajax({
 	document.getElementById("fifthSM64Viewers").innerHTML = fifthSM64Viewers;
 	document.getElementById("fifthSM64Title").innerHTML = fifthSM64Title;
 	
+	// Fifth SM64 replace thumbnail with embedded stream onclick
+	document.getElementById("fifthSM64replaced").addEventListener("click", function(){
+	  document.getElementById("fifthSM64replaced").innerHTML = "<iframe src=https://player.twitch.tv/?channel=" + fifthSM64Streamer+ " frameborder='0' allowfullscreen='true' scrolling='no' height='200' width='300'></iframe>";
+	});
+	
 	// sixth SM64 stream variables
 		var sixthImageURLSM64Data = json.data[5].thumbnail_url;
 		var repsixthImageURLSM64Data = sixthImageURLSM64Data.replace("{width}x{height}", "300x200");
@@ -450,6 +483,11 @@ $.ajax({
 	document.getElementById("sixthSM64Streamer").innerHTML = sixthSM64Streamer;
 	document.getElementById("sixthSM64Viewers").innerHTML = sixthSM64Viewers;
 	document.getElementById("sixthSM64Title").innerHTML = sixthSM64Title;
+	
+	// Sixth SM64 replace thumbnail with embedded stream onclick
+	document.getElementById("sixthSM64replaced").addEventListener("click", function(){
+	  document.getElementById("sixthSM64replaced").innerHTML = "<iframe src=https://player.twitch.tv/?channel=" + sixthSM64Streamer+ " frameborder='0' allowfullscreen='true' scrolling='no' height='200' width='300'></iframe>";
+	});
 }});
 </script>
 <div class="container">
@@ -463,9 +501,9 @@ $.ajax({
     <div class="card bg-light">
       <div class="card-body text-center">
 		<div style="float:left; text-align:left;">
-			<a id="firstSM64Link"><img id="repfirstImageURLSM64Data"/>
+			<a id="firstSM64replaced"><img id="repfirstImageURLSM64Data"/></a>
 			
-			
+			<a id="firstSM64Link">
 			<b><span style=" word-wrap: break-word;" id="firstSM64Title"></b></span><br>
 			<span id="firstSM64Streamer"></span> - <span id="firstSM64Viewers"></span> viewers</a>
 			</div>
@@ -475,9 +513,9 @@ $.ajax({
     <div class="card bg-light">
       <div class="card-body text-center">
         <div style="float:left; text-align:left;">
-			<a id="secondSM64Link"><img id="repsecondImageURLSM64Data"/>
+			<a id="secondSM64replaced"><img id="repsecondImageURLSM64Data"/></a>
 			
-			
+			<a id="secondSM64Link">
 			<b><span style=" word-wrap: break-word;" id="secondSM64Title"></b></span><br>
 			<span id="secondSM64Streamer"></span> - <span id="secondSM64Viewers"></span> viewers</a>
 			</div>
@@ -487,9 +525,9 @@ $.ajax({
     <div class="card bg-light">
       <div class="card-body text-center">
                 <div style="float:left; text-align:left;">
-			<a id="thirdSM64Link"><img id="repthirdImageURLSM64Data"/>
+			<a id="thirdSM64replaced"><img id="repthirdImageURLSM64Data"/></a>
 			
-			
+			<a id="thirdSM64Link">
 			<b><span style=" word-wrap: break-word;" id="thirdSM64Title"></b></span><br>
 			<span id="thirdSM64Streamer"></span> - <span id="thirdSM64Viewers"></span> viewers</a>
 			</div>
@@ -501,9 +539,9 @@ $.ajax({
 	    <div class="card bg-light">
       <div class="card-body text-center">
             <div style="float:left; text-align:left;">
-			<a id="fourthSM64Link"><img id="repfourthImageURLSM64Data"/>
+			<a id="fourthSM64replaced"><img id="repfourthImageURLSM64Data"/></a>
 			
-			
+			<a id="fourthSM64Link">
 			<b><span style=" word-wrap: break-word;" id="fourthSM64Title"></b></span><br>
 			<span id="fourthSM64Streamer"></span> - <span id="fourthSM64Viewers"></span> viewers</a>
 			</div>
@@ -514,9 +552,9 @@ $.ajax({
 	  <div class="card bg-light">
 		<div class="card-body text-center">
 		    <div style="float:left; text-align:left;">
-			<a id="fifthSM64Link"><img id="repfifthImageURLSM64Data"/>
+			<a id="fifthSM64replaced"><img id="repfifthImageURLSM64Data"/></a>
 			
-			
+			<a id="fifthSM64Link">
 			<b><span style=" word-wrap: break-word;" id="fifthSM64Title"></b></span><br>
 			<span id="fifthSM64Streamer"></span> - <span id="fifthSM64Viewers"></span> viewers</a>
 			</div>
@@ -526,9 +564,9 @@ $.ajax({
 	  <div class="card bg-light">
 		<div class="card-body text-center">
 		 	<div style="float:left; text-align:left;">
-			<a id="sixthSM64Link"><img id="repsixthImageURLSM64Data"/>
+			<a id="sixthSM64replaced"><img id="repsixthImageURLSM64Data"/></a>
 			
-			
+			<a id="sixthSM64Link">
 			<b><span style=" word-wrap: break-word;" id="sixthSM64Title"></b></span><br>
 			<span id="sixthSM64Streamer"></span> - <span id="sixthSM64Viewers"></span> viewers</a>
 			</div>

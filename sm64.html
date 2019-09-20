@@ -429,28 +429,7 @@ $.ajax({
 	document.getElementById("secondSM64replaced").addEventListener("click", function(){
 	  document.getElementById("secondSM64replaced").innerHTML = "<iframe src=https://player.twitch.tv/?channel=" + secondSM64Streamer+ " frameborder='0' allowfullscreen='true' scrolling='no' height='200' width='300'></iframe>";
 	});
-					$.ajax({
-							type: "POST",
-							dataType: 'jsonp',
-							url: "https://www.speedrun.com/api/v1/users/"+secondSM64Streamer,
-							async: false,
-							contentType: "application/json; charset=utf-8",
-							success: function (msg) {
-								var secondSM64SR = msg.data.weblink;
-								var secondSM64YouTube = msg.data.youtube.uri;
-								var secondSM64Twitter = msg.data.twitter.uri;
-								document.getElementById("secondSM64Twitter").href = secondSM64Twitter;
-								document.getElementById("secondSM64YouTube").href = secondSM64YouTube;
-								document.getElementById("secondSM64SR").href = secondSM64SR;
-								
-
-							},
-							else: function(){
-							document.getElementById("secondSM64Twitter").style.display = "none";
-							document.getElementById("secondSM64YouTube").style.display = "none";
-							document.getElementById("secondSM64SR").style.display = "none";
-							}
-				 });
+	
 	
 	///////////////
 	
@@ -631,7 +610,6 @@ $.ajax({
 			<a id="secondSM64Link">
 			<b><span style=" word-wrap: break-word;" id="secondSM64Title"></b></span><br>
 			<span id="secondSM64Streamer"></span> - <span id="secondSM64Viewers"></span> viewers</a>
-			<a id="secondSM64Twitter" href=""><i class='fab fa-twitter-square'></i></a> <a id="secondSM64YouTube" href=""><i class='fab fa-youtube'></i></a> <a id="secondSM64SR" href=""><i class='fas fa-trophy'></i></a>
 			</div>
 		</p></a>
       </div>
@@ -644,7 +622,6 @@ $.ajax({
 			<a id="thirdSM64Link">
 			<b><span style=" word-wrap: break-word;" id="thirdSM64Title"></b></span><br>
 			<span id="thirdSM64Streamer"></span> - <span id="thirdSM64Viewers"></span> viewers</a>
-			
 			</div>
 		</p></a>
       </div>

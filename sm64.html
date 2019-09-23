@@ -29,7 +29,7 @@
 	}
 	</style>
 </head>
-<body onload="SM6470StarFunction(); SM64120StarFunction(); SM6416StarFunction(); SM641StarFunction(); SM640StarFunction()"> 
+<body onload="startInterval(); dateInfo(); SM6470StarFunction(); SM64120StarFunction(); SM6416StarFunction(); SM641StarFunction(); SM640StarFunction()"> 
 
 <script>
 
@@ -251,6 +251,18 @@ function SM640StarFunction() {
  }); // Just an example
 }
 </script>
+
+<script>
+function dateInfo() {
+  var d = new Date();
+  var n = d.toUTCString();
+  document.getElementById("UTCdate").innerHTML = n;
+}
+
+function startInterval(){
+    setInterval("dateInfo();",1000);
+}
+</script>
 <div class="container">
   <h2>Super Mario 64</h2>
   
@@ -283,7 +295,7 @@ function SM640StarFunction() {
 
 	  </div>
   </ul><br>
-  <p>World Records via Speedrun.com API</p>            
+  <p>World Records via Speedrun.com API <span style="float:right;" id="UTCdate"></span></p>            
   <table class="table table-hover table-condensed">
     <thead>
       <tr>

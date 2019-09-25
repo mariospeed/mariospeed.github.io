@@ -64,7 +64,7 @@ $.ajax({
 								var name = msg.data.names.international;
 								var nameLink = msg.data.weblink;
 								document.getElementById("SM6470StarCategory").innerHTML = "<a href=" + category +">" + "70 Star"+ "</a>";
-								document.getElementById("SM6470StarTime").innerHTML = minutes + ":" + seconds.toFixed(2) ;
+								document.getElementById("SM6470StarTime").innerHTML = minutes + ":0" + seconds.toFixed(2) ;
 								document.getElementById("SM6470StarRunner").innerHTML =   "<a href=" + nameLink +">" + name + "</a>";
 								document.getElementById("SM6470StarDate").innerHTML = date;
 								document.getElementById("SM6470StarLink").innerHTML =  "<a href=" + link +">" + "Link"+ "</a>";

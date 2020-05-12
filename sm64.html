@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,6 +10,8 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="https://kit.fontawesome.com/858f9458d7.js" crossorigin="anonymous"></script>
+
     <link rel="stylesheet" href="https://bootswatch.com/4/simplex/bootstrap.min.css">
 	
 	<style>
@@ -30,6 +31,28 @@
 	#firstSM64replaced:hover, #secondSM64replaced:hover, #thirdSM64replaced:hover, #fourthSM64replaced:hover, #fifthSM64replaced:hover, #sixthSM64replaced:hover {
 	cursor:pointer;
 	}
+	
+	#topNav {
+	width:100%;
+	top:0;
+	margin-left:-35px;
+	}
+	#topNav li {
+	display:inline;
+	float:left;
+	padding:10px;
+	margin-top:-20px;
+		background-color:white;
+	}
+	
+	#bloggerIcon:hover {
+	background-color:#ffefd5;
+	}
+	
+	#ghIcon:hover {
+	background-color:	#D3D3D3;
+	}
+
 	</style>
 </head>
 <body onload="startInterval(); dateInfo(); SM6470StarFunction(); SM64120StarFunction(); SM6416StarFunction(); SM641StarFunction(); SM640StarFunction()"> 
@@ -306,6 +329,18 @@ function darkModeFunction(){
 	});
 	}
 </script>
+
+
+<div>
+<ul id="topNav">
+	<li><span style="color:#D3D3D3">A project by</span> <span style="color:#939393">MarioSpeed</span></li>
+
+	<a href="https://mariospeedruns.blogspot.com/"><li id="bloggerIcon"><i class="fab fa-blogger" style="font-size:16px;color:orange;"></i></li></a>
+	<a href="https://github.com/mariospeed/mariospeed.github.io"><li id="ghIcon"><i class="fab fa-github" style="font-size:16px;color:black"></i></li></a>
+
+</div>
+<br><br>
+
 <div class="container" id="cont">
   <h2>Super Mario 64</h2>
   

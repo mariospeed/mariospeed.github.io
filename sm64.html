@@ -388,11 +388,11 @@ function darkModeFunction(){
       </tr>
     </tbody>
   </table>
-</div>
-<script>/*
+</div><!--
+<script>
 // Twitch API data retrieval
 $.ajax({
-  type: 'GET', 
+  type: 'POST', 
   url: 'https://api.twitch.tv/helix/streams?game_id=2692',
   headers: {'Client-ID': 'zc2z5a3bs1ak2qtr3ye7dc9ymfnwg7'},
   success: function(json) {
@@ -610,13 +610,13 @@ $.ajax({
 
 
 
-*/
+
 </script>
-<div class="container">
+--><div class="container">
 <!--
 <div class="container">
 
-    <p>   Twitch      <!-- <br> <span id="totalStreamers"></span> live streams with <span id="totalViewers"></span> viewers--></p>
+    <p>   Twitch      <!-- <br> <span id="totalStreamers"></span> live streams with <span id="totalViewers"></span></p>
 
 
   <div class="card-deck">
@@ -657,7 +657,7 @@ $.ajax({
       </div>
     </div>
   </div>
-<div class="card-deck"> <!-- Second row Twitch streams -->
+<div class="card-deck"> <!-- Second row Twitch streams 
 	    <div class="card bg-light">
       <div class="card-body text-center">
             <div style="float:left; text-align:left;">
@@ -699,7 +699,7 @@ $.ajax({
 
 	</div>
 	
-	<div class="card-deck"> <!-- Third row Twitch streams -->
+	<div class="card-deck"> <!-- Third row Twitch streams 
 	    <div class="card bg-light">
       <div class="card-body text-center">
             <div style="float:left; text-align:left;">
@@ -737,10 +737,8 @@ $.ajax({
 		</p></a>
       </div>
     </div>
-
-	</div>
-
 -->
+	</div>
 <br>
   <table class="table table-bordered table-striped table-sm">
     <ul class="list-group list-group-horizontal">

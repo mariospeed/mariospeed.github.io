@@ -289,45 +289,7 @@ function startInterval(){
     setInterval("dateInfo();",1000);
 }
 
-function darkModeFunction(){
-	document.getElementById("darkModeButton").addEventListener("click", function(){
-	    document.body.style.backgroundColor = "black";
-		document.body.style.color = "white";
-		
-	  var x = document.getElementsByClassName("card-body");
-	  var i;
-	  for (i = 0; i < x.length; i++) {
-		x[i].style.backgroundColor = "black";
-	  }
 
-	  var z = document.getElementsByClassName("list-group-item");
-	  var i;
-	  for (i = 0; i < z.length; i++) {
-		z[i].style.backgroundColor = "black";
-	  }
-	  
-	  
-	  document.getElementById("dropItem").style.backgroundColor = "black";
-	  document.getElementById("darkModeThis").style.color = "white";
-	  
-	  
-	  document.getElementById("SM640StarTime").style.color = "white";
-	  document.getElementById("SM641StarTime").style.color = "white";
-	  document.getElementById("SM6416StarTime").style.color = "white";
-	  document.getElementById("SM6470StarTime").style.color = "white";
-	  document.getElementById("SM64120StarTime").style.color = "white";
-	  
-	  document.getElementById("SM640StarDate").style.color = "white";
-	  document.getElementById("SM641StarDate").style.color = "white";
-	  document.getElementById("SM6416StarDate").style.color = "white";
-	  document.getElementById("SM6470StarDate").style.color = "white";
-	  document.getElementById("SM64120StarDate").style.color = "white";
-	  
-	  var darkModeVar = document.querySelectorAll("[id='darkModeThis']");
-	  for(var i = 0; i < darkModeVar.length; i++) 
-		darkModeVar[i].style.color='white'; 
-	});
-	}
 </script>
 
 
@@ -371,7 +333,6 @@ function darkModeFunction(){
 		<a class="dropdown-item" href="http://sm64.iotku.pw/VC-Gecko-Codes/">VC codes</a>
 
 	  </div>
-	<a id="darkModeButton" onclick=darkModeFunction(); href="#"><li class="list-group-item">Night mode</li></a>
   </ul><br>
   <p>World Records via Speedrun.com API <span style="float:right;" id="UTCdate"></span></p>            
   <table class="table table-hover table-condensed">

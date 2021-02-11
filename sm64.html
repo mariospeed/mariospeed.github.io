@@ -90,7 +90,7 @@ $.ajax({
 								var name = msg.data.names.international;
 								var nameLink = msg.data.weblink;
 								document.getElementById("SM6470StarCategory").innerHTML = "<a href=" + category +">" + "70 Star"+ "</a>";
-								document.getElementById("SM6470StarTime").innerHTML = minutes + ":" + seconds.toFixed(2) ;
+								document.getElementById("SM6470StarTime").innerHTML = minutes + ":" + seconds.toFixed(0) ;
 								document.getElementById("SM6470StarRunner").innerHTML =   "<a href=" + nameLink +">" + name + "</a>";
 								document.getElementById("SM6470StarDate").innerHTML = date;
 								document.getElementById("SM6470StarLink").innerHTML =  "<a href=" + link +">" + "Link"+ "</a>";
@@ -142,7 +142,7 @@ function SM64120StarFunction() {
 								var name = msg.data.names.international;
 								var nameLink = msg.data.weblink;
 								document.getElementById("SM64120StarCategory").innerHTML = "<a href=" + category +">" + "120 Star"+ "</a>";
-								document.getElementById("SM64120StarTime").innerHTML =hours  + ":" + newMin + ":" + seconds.toFixed(2) ;
+								document.getElementById("SM64120StarTime").innerHTML =hours  + ":" + newMin + ":" + seconds.toFixed(0) ;
 								document.getElementById("SM64120StarRunner").innerHTML =   "<a href=" + nameLink +">" + name + "</a>";
 								document.getElementById("SM64120StarDate").innerHTML = date;
 								document.getElementById("SM64120StarLink").innerHTML =  "<a href=" + link +">" + "Link"+ "</a>";

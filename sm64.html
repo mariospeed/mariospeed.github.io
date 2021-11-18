@@ -11,6 +11,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <script src="https://kit.fontawesome.com/858f9458d7.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
 
    <!-- <link rel="stylesheet" href="https://bootswatch.com/4/simplex/bootstrap.min.css">-->
 	
@@ -75,8 +76,11 @@ $.ajax({
 				var seconds = time - minutes * 60;
 				var link = msg.data.runs[0].run.weblink;
 				var runner = msg.data.runs[0].run['players'][0].uri;
-				var date = msg.data.runs[0].run.date;
+				var date70 = msg.data.runs[0].run.date;
 				var category = msg.data.weblink;
+				var dateValue70 = date70.valueOf();
+				var eventDate70 = moment(dateValue70);
+				var moment70 = moment();
 				
 				$.ajax({
 							type: "POST",
@@ -92,7 +96,7 @@ $.ajax({
 								document.getElementById("SM6470StarCategory").innerHTML = "<a href=" + category +">" + "70 Star"+ "</a>";
 								document.getElementById("SM6470StarTime").innerHTML = minutes + ":" + seconds.toFixed(0) ;
 								document.getElementById("SM6470StarRunner").innerHTML =   "<a href=" + nameLink +">" + name + "</a>";
-								document.getElementById("SM6470StarDate").innerHTML = date;
+								document.getElementById("SM6470StarDate").innerHTML = date70 + " (" +  Math.abs(eventDate70.diff(moment70, 'days')) + " days ago)";
 								document.getElementById("SM6470StarLink").innerHTML =  "<a href=" + link +">" + "Link"+ "</a>";
 							}
 				 });
@@ -125,10 +129,13 @@ function SM64120StarFunction() {
 				var seconds = time - minutes * 60;
 				var link = msg.data.runs[0].run.weblink;
 				var runner = msg.data.runs[0].run['players'][0].uri;
-				var date = msg.data.runs[0].run.date;
+				var date120 = msg.data.runs[0].run.date;
 				var category = msg.data.weblink;
 				var hours = 1;
 				var newMin = minutes - 60;
+				var dateValue120 = date120.valueOf();
+				var eventDate120 = moment(dateValue120);
+				var moment120 = moment();
 				
 				$.ajax({
 							type: "POST",
@@ -144,7 +151,7 @@ function SM64120StarFunction() {
 								document.getElementById("SM64120StarCategory").innerHTML = "<a href=" + category +">" + "120 Star"+ "</a>";
 								document.getElementById("SM64120StarTime").innerHTML =hours  + ":" + newMin + ":" + seconds.toFixed(0) ;
 								document.getElementById("SM64120StarRunner").innerHTML =   "<a href=" + nameLink +">" + name + "</a>";
-								document.getElementById("SM64120StarDate").innerHTML = date;
+								document.getElementById("SM64120StarDate").innerHTML = date120 + " (" +  Math.abs(eventDate120.diff(moment120, 'days')) + " days ago)";
 								document.getElementById("SM64120StarLink").innerHTML =  "<a href=" + link +">" + "Link"+ "</a>";
 							}
 				 });
@@ -168,8 +175,11 @@ function SM6416StarFunction() {
 				var seconds = time - minutes * 60;
 				var link = msg.data.runs[0].run.weblink;
 				var runner = msg.data.runs[0].run['players'][0].uri;
-				var date = msg.data.runs[0].run.date;
+				var date16 = msg.data.runs[0].run.date;
 				var category = msg.data.weblink;
+				var dateValue16 = date16.valueOf();
+				var eventDate16 = moment(dateValue16);
+				var moment16 = moment();
 				
 				$.ajax({
 							type: "POST",
@@ -185,7 +195,7 @@ function SM6416StarFunction() {
 								document.getElementById("SM6416StarCategory").innerHTML = "<a href=" + category +">" + "16 Star"+ "</a>";
 								document.getElementById("SM6416StarTime").innerHTML = minutes + ":" + seconds.toFixed(2) ;
 								document.getElementById("SM6416StarRunner").innerHTML =   "<a href=" + nameLink +">" + name + "</a>";
-								document.getElementById("SM6416StarDate").innerHTML = date;
+								document.getElementById("SM6416StarDate").innerHTML = date16 + " (" +  Math.abs(eventDate16.diff(moment16, 'days')) + " days ago)";
 								document.getElementById("SM6416StarLink").innerHTML =  "<a href=" + link +">" + "Link"+ "</a>";
 							}
 				 });
@@ -209,8 +219,11 @@ function SM641StarFunction() {
 				var seconds = time - minutes * 60;
 				var link = msg.data.runs[0].run.weblink;
 				var runner = msg.data.runs[0].run['players'][0].uri;
-				var date = msg.data.runs[0].run.date;
+				var date1 = msg.data.runs[0].run.date;
 				var category = msg.data.weblink;
+				var dateValue1 = date1.valueOf();
+				var eventDate1 = moment(dateValue1);
+				var moment1 = moment();
 				
 				$.ajax({
 							type: "POST",
@@ -226,7 +239,7 @@ function SM641StarFunction() {
 								document.getElementById("SM641StarCategory").innerHTML = "<a href=" + category +">" + "1 Star"+ "</a>";
 								document.getElementById("SM641StarTime").innerHTML = minutes + ":" + seconds.toFixed(2) ;
 								document.getElementById("SM641StarRunner").innerHTML =   "<a href=" + nameLink +">" + name + "</a>";
-								document.getElementById("SM641StarDate").innerHTML = date;
+								document.getElementById("SM641StarDate").innerHTML = date1 + " (" +  Math.abs(eventDate1.diff(moment1, 'days')) + " days ago)";
 								document.getElementById("SM641StarLink").innerHTML =  "<a href=" + link +">" + "Link"+ "</a>";
 							}
 				 });
@@ -250,9 +263,12 @@ function SM640StarFunction() {
 				var seconds = time - minutes * 60;
 				var link = msg.data.runs[0].run.weblink;
 				var runner = msg.data.runs[0].run['players'][0].uri;
-				var date = msg.data.runs[0].run.date;
-				var category = msg.data.weblink;
-				
+				var date0 = msg.data.runs[0].run.date;
+				var category = msg.data.weblink;			
+				var dateValue0 = date0.valueOf();
+				var eventDate0 = moment(dateValue0);
+				var moment0 = moment();
+
 				$.ajax({
 							type: "POST",
 							dataType: 'jsonp',
@@ -267,7 +283,7 @@ function SM640StarFunction() {
 								document.getElementById("SM640StarCategory").innerHTML = "<a href=" + category +">" + "0 Star"+ "</a>";
 								document.getElementById("SM640StarTime").innerHTML = minutes + ":" + seconds.toFixed(2) ;
 								document.getElementById("SM640StarRunner").innerHTML =   "<a href=" + nameLink +">" + name + "</a>";
-								document.getElementById("SM640StarDate").innerHTML = date;
+								document.getElementById("SM640StarDate").innerHTML = date0 + " (" +  Math.abs(eventDate0.diff(moment0, 'days')) + " days ago)";
 								document.getElementById("SM640StarLink").innerHTML =  "<a href=" + link +">" + "Link"+ "</a>";
 							}
 				 });
@@ -283,6 +299,7 @@ function dateInfo() {
   var d = new Date();
   var n = d.toUTCString();
   document.getElementById("UTCdate").innerHTML = n;
+
 }
 
 function startInterval(){
@@ -321,11 +338,11 @@ function startInterval(){
     </thead>
     <tbody>
       <tr>
-        <td id="SM640StarCategory"></td>
-        <td id="SM640StarTime"></td>
-        <td  id="SM640StarRunner"></td>
-		<td id="SM640StarDate"></td>
-		<td id="SM640StarLink">  </td>
+        <td style="width:10%" id="SM640StarCategory"></td>
+        <td style="width:10%" id="SM640StarTime"></td>
+        <td style="width:10%" id="SM640StarRunner"></td>
+		<td style="width:15%" id="SM640StarDate"></td>
+		<td style="width:10%" id="SM640StarLink">  </td>
 
 
       </tr>

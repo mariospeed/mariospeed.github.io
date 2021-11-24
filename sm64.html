@@ -98,7 +98,12 @@ $.ajax({
 								document.getElementById("SM6470StarCategory").innerHTML = "<a href=" + category +">" + "70 Star"+ "</a>";
 								document.getElementById("SM6470StarTime").innerHTML = minutes + ":" + seconds.toFixed(0) ;
 								document.getElementById("SM6470StarRunner").innerHTML =   "<a href=" + nameLink +">" + name + "</a> <a href=" + nameTwitch +"> <i class='fa fa-twitch'></i>";
-								document.getElementById("SM6470StarDate").innerHTML = date70 + " (" +  Math.abs(eventDate70.diff(moment70, 'days')) + " days ago)";
+								if(Math.abs(eventDate70.diff(moment70, 'days')) == 1){
+									document.getElementById("SM6470StarDate").innerHTML = date70 + " (" +  Math.abs(eventDate70.diff(moment70, 'days')) + " day ago)";
+								}
+								else{
+									document.getElementById("SM6470StarDate").innerHTML = date70 + " (" +  Math.abs(eventDate70.diff(moment70, 'days')) + " days ago)";
+								}
 								document.getElementById("SM6470StarLink").innerHTML =  "<div class='list-group'>  <a href=" + video70 +" class='list-group-item py-0 list-group-item-action'>  <i class='fa fa-play-circle'></i> Video   </a> <a href=" +link +" class='list-group-item py-0 list-group-item-action'> <i class='fa fa-trophy'></i>  Link   </a></div>";
 							}
 				 });
@@ -155,7 +160,12 @@ function SM64120StarFunction() {
 								document.getElementById("SM64120StarCategory").innerHTML = "<a href=" + category +">" + "120 Star"+ "</a>";
 								document.getElementById("SM64120StarTime").innerHTML =hours  + ":" + newMin + ":" + seconds.toFixed(0) ;
 								document.getElementById("SM64120StarRunner").innerHTML =   "<a href=" + nameLink +">" + name + "</a> <a href=" + nameTwitch +"> <i class='fa fa-twitch'></i>";
-								document.getElementById("SM64120StarDate").innerHTML = date120 + " (" +  Math.abs(eventDate120.diff(moment120, 'days')) + " days ago)";
+								if(Math.abs(eventDate120.diff(moment120, 'days')) == 1){
+									document.getElementById("SM64120StarDate").innerHTML = date120 + " (" +  Math.abs(eventDate120.diff(moment120, 'days')) + " day ago)";
+								}
+								else{
+									document.getElementById("SM64120StarDate").innerHTML = date120 + " (" +  Math.abs(eventDate120.diff(moment120, 'days')) + " days ago)";
+								}
 								document.getElementById("SM64120StarLink").innerHTML =  "<div class='list-group'>  <a href=" + video120 +" class='list-group-item py-0 list-group-item-action'>  <i class='fa fa-play-circle'></i> Video   </a> <a href=" +link +" class='list-group-item py-0 list-group-item-action'> <i class='fa fa-trophy'></i>  Link   </a></div>";
 							}
 				 });
@@ -201,7 +211,15 @@ function SM6416StarFunction() {
 								document.getElementById("SM6416StarCategory").innerHTML = "<a href=" + category +">" + "16 Star"+ "</a>";
 								document.getElementById("SM6416StarTime").innerHTML = minutes + ":" + seconds.toFixed(2) ;
 								document.getElementById("SM6416StarRunner").innerHTML =   "<a href=" + nameLink +">" + name + "</a> <a href=" + nameTwitch +"> <i class='fa fa-twitch'></i>";
-								document.getElementById("SM6416StarDate").innerHTML = date16 + " (" +  Math.abs(eventDate16.diff(moment16, 'days')) + " days ago)";
+								
+								
+								if(Math.abs(eventDate16.diff(moment16, 'days')) == 1){
+									document.getElementById("SM6416StarDate").innerHTML = date16 + " (" +  Math.abs(eventDate16.diff(moment16, 'days')) + " day ago)";
+								}
+								else{
+									document.getElementById("SM6416StarDate").innerHTML = date16 + " (" +  Math.abs(eventDate16.diff(moment16, 'days')) + " days ago)";
+								}
+								
 								document.getElementById("SM6416StarLink").innerHTML =  "<div class='list-group'>  <a href=" + video16 +" class='list-group-item py-0 list-group-item-action'>  <i class='fa fa-play-circle'></i> Video   </a> <a href=" +link +" class='list-group-item py-0 list-group-item-action'> <i class='fa fa-trophy'></i>  Link   </a></div>";
 							}
 				 });
@@ -247,7 +265,12 @@ function SM641StarFunction() {
 								document.getElementById("SM641StarCategory").innerHTML = "<a href=" + category +">" + "1 Star"+ "</a>";
 								document.getElementById("SM641StarTime").innerHTML = minutes + ":" + seconds.toFixed(2) ;
 								document.getElementById("SM641StarRunner").innerHTML =   "<a href=" + nameLink +">" + name + "</a> <a href=" + nameTwitch +"> <i class='fa fa-twitch'></i>";
-								document.getElementById("SM641StarDate").innerHTML = date1 + " (" +  Math.abs(eventDate1.diff(moment1, 'days')) + " days ago)";
+								if(Math.abs(eventDate1.diff(moment1, 'days')) == 1){
+									document.getElementById("SM641StarDate").innerHTML = date1 + " (" +  Math.abs(eventDate1.diff(moment1, 'days')) + " day ago)";
+								}
+								else{
+									document.getElementById("SM641StarDate").innerHTML = date1 + " (" +  Math.abs(eventDate1.diff(moment1, 'days')) + " days ago)";
+								}
 								document.getElementById("SM641StarLink").innerHTML =  "<div class='list-group'>  <a href=" + video1 +" class='list-group-item py-0 list-group-item-action'>  <i class='fa fa-play-circle'></i> Video   </a> <a href=" +link +" class='list-group-item py-0 list-group-item-action'> <i class='fa fa-trophy'></i>  Link   </a></div>";
 							}
 				 });
@@ -293,7 +316,12 @@ function SM640StarFunction() {
 								document.getElementById("SM640StarCategory").innerHTML = "<a href=" + category +">" + "0 Star"+ "</a>";
 								document.getElementById("SM640StarTime").innerHTML = minutes + ":" + seconds.toFixed(2) ;
 								document.getElementById("SM640StarRunner").innerHTML =   "<a href=" + nameLink +">" + name + "</a> <a href=" + nameTwitch +"> <i class='fa fa-twitch'></i>";
-								document.getElementById("SM640StarDate").innerHTML = date0 + " (" +  Math.abs(eventDate0.diff(moment0, 'days')) + " days ago)";
+								if(Math.abs(eventDate0.diff(moment0, 'days')) == 1){
+									document.getElementById("SM640StarDate").innerHTML = date0 + " (" +  Math.abs(eventDate0.diff(moment0, 'days')) + " day ago)";
+								}
+								else{
+									document.getElementById("SM640StarDate").innerHTML = date0 + " (" +  Math.abs(eventDate0.diff(moment0, 'days')) + " days ago)";
+								}
 								document.getElementById("SM640StarLink").innerHTML =  "<div class='list-group'>  <a href=" + video0 +" class='list-group-item py-0 list-group-item-action'>  <i class='fa fa-play-circle'></i> Video   </a> <a href=" +link +" class='list-group-item py-0 list-group-item-action'> <i class='fa fa-trophy'></i>  Link   </a></div>";
 
 							}

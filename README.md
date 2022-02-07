@@ -1,2 +1,2 @@
-# https://github.com/mariospeed
-Documenting history for Super Mario speedrunning
+# https://mariospeed.github.io/sm64
+Open source front-end for Speedrun.com/sm64

@@ -420,356 +420,125 @@ $(document).ready(function(){
   </table>
 </div>
 
-<!--
+
 <script>
-// Twitch API data retrieval
 $.ajax({
-  type: 'POST', 
-  url: 'https://api.twitch.tv/helix/streams?game_id=2692',
-  headers: {'Client-ID': 'zc2z5a3bs1ak2qtr3ye7dc9ymfnwg7'},
-  success: function(json) {
-  
-	// General Twitch data
-		//var totalStreamers = json.data.length;
-		//document.getElementById("totalStreamers").innerHTML = totalStreamers;
+ type: 'GET',
+ url: 'https://api.twitch.tv/kraken/streams/?game=Super Mario 64',
+ headers: {
+   'Client-ID': 'nfsk9onrddch0sz4mfxjwykalhra6sr','Accept': 'application/vnd.twitchtv.v5+json'
+ },
+ success: function(json) {
+   // General Twitch data
 		
-		/*
-		var totalViewers = "";
-		var totalViewersSum = "";
-			for (i = 0; i < json.data.length; i++) {
-			  totalViewersArray = json.data[i].viewer_count;
-			  console.log(totalViewersArray);
-			  parseInt(totalViewersArray)
-			  totalViewersSum += parseInt(totalViewersArray++);
-			  console.log(totalViewersSum);
-			}
-		*/
+		document.getElementById("twitchOneScreenshot").src = json.streams[0].preview.medium;
+		document.getElementById("twitchOneTitle").innerHTML = json.streams[0].channel.status;
+		document.getElementById("twitchOneStreamer").innerHTML = json.streams[0].channel.name;
+		document.getElementById("twitchOneViewers").innerHTML = json.streams[0].viewers;
+		document.getElementById("twitchOneLink").href = json.streams[0].channel.url;
 		
-
-	
-	// First SM64 stream variables
-  		var firstImageURLSM64Data = json.data[0].thumbnail_url;
-		var repfirstImageURLSM64Data = firstImageURLSM64Data.replace("{width}x{height}", "300x200");
-		var firstSM64Streamer = json.data[0].user_name;
-		var firstSM64Viewers = json.data[0].viewer_count;
-		var firstSM64Title = json.data[0].title;
-	// sample 'https://api.twitch.tv/helix/games?name=Okami'
-	console.log(json)
-	
-	// First SM64 Stream replace
-	document.getElementById("repfirstImageURLSM64Data").src = repfirstImageURLSM64Data;
-	document.getElementById("repfirstImageURLSM64Data").src = repfirstImageURLSM64Data;
-	document.getElementById("firstSM64Link").href = "https://twitch.tv/"+ firstSM64Streamer;
-	document.getElementById("firstSM64Streamer").innerHTML = firstSM64Streamer;
-	document.getElementById("firstSM64Viewers").innerHTML = firstSM64Viewers;
-	document.getElementById("firstSM64Title").innerHTML = firstSM64Title;
-	
-	// First SM64 replace thumbnail with embedded stream onclick
-	document.getElementById("firstSM64replaced").addEventListener("click", function(){
-	  document.getElementById("firstSM64replaced").innerHTML = "<iframe src=https://player.twitch.tv/?channel=" + firstSM64Streamer+ " frameborder='0' allowfullscreen='true' scrolling='no' height='200' width='300'></iframe>";
-	});
-
-
-
-	
-	//////////////
-	
-	// Second SM64 stream variables
-  		var secondImageURLSM64Data = json.data[1].thumbnail_url;
-		var repsecondImageURLSM64Data = secondImageURLSM64Data.replace("{width}x{height}", "300x200");
-		var secondSM64Streamer = json.data[1].user_name;
-		var secondSM64Viewers = json.data[1].viewer_count;
-		var secondSM64Title = json.data[1].title;
-	
-	// Second SM64 Stream replace
-	document.getElementById("repsecondImageURLSM64Data").src = repsecondImageURLSM64Data;
-	document.getElementById("repsecondImageURLSM64Data").src = repsecondImageURLSM64Data;
-	document.getElementById("secondSM64Link").href = "https://twitch.tv/"+ secondSM64Streamer;
-	document.getElementById("secondSM64Streamer").innerHTML = secondSM64Streamer;
-	document.getElementById("secondSM64Viewers").innerHTML = secondSM64Viewers;
-	document.getElementById("secondSM64Title").innerHTML = secondSM64Title;
-	
-	// Second SM64 replace thumbnail with embedded stream onclick
-	document.getElementById("secondSM64replaced").addEventListener("click", function(){
-	  document.getElementById("secondSM64replaced").innerHTML = "<iframe src=https://player.twitch.tv/?channel=" + secondSM64Streamer+ " frameborder='0' allowfullscreen='true' scrolling='no' height='200' width='300'></iframe>";
-	});
-	
-	///////////////
-	
-	// Third SM64 stream variables
-		var thirdImageURLSM64Data = json.data[2].thumbnail_url;
-		var repthirdImageURLSM64Data = thirdImageURLSM64Data.replace("{width}x{height}", "300x200");
-		var thirdSM64Streamer = json.data[2].user_name;
-		var thirdSM64Viewers = json.data[2].viewer_count;
-		var thirdSM64Title = json.data[2].title;
+		document.getElementById("twitchTwoScreenshot").src = json.streams[1].preview.medium;
+		document.getElementById("twitchTwoTitle").innerHTML = json.streams[1].channel.status;
+		document.getElementById("twitchTwoStreamer").innerHTML = json.streams[1].channel.name;
+		document.getElementById("twitchTwoViewers").innerHTML = json.streams[1].viewers;
+		document.getElementById("twitchTwoLink").href = json.streams[1].channel.url;
 		
-	// Third SM64 Stream replace
-	document.getElementById("repthirdImageURLSM64Data").src = repthirdImageURLSM64Data;
-	document.getElementById("repthirdImageURLSM64Data").src = repthirdImageURLSM64Data;
-	document.getElementById("thirdSM64Link").href = "https://twitch.tv/"+ thirdSM64Streamer;
-	document.getElementById("thirdSM64Streamer").innerHTML = thirdSM64Streamer;
-	document.getElementById("thirdSM64Viewers").innerHTML = thirdSM64Viewers;
-	document.getElementById("thirdSM64Title").innerHTML = thirdSM64Title;
-	
-	// Second SM64 replace thumbnail with embedded stream onclick
-	document.getElementById("thirdSM64replaced").addEventListener("click", function(){
-	  document.getElementById("thirdSM64replaced").innerHTML = "<iframe src=https://player.twitch.tv/?channel=" + thirdSM64Streamer+ " frameborder='0' allowfullscreen='true' scrolling='no' height='200' width='300'></iframe>";
-	});
-	///////////////
-	
-	// Fourth SM64 stream variables 
-		var fourthImageURLSM64Data = json.data[3].thumbnail_url;
-		var repfourthImageURLSM64Data = fourthImageURLSM64Data.replace("{width}x{height}", "300x200");
-		var fourthSM64Streamer = json.data[3].user_name;
-		var fourthSM64Viewers = json.data[3].viewer_count;
-		var fourthSM64Title = json.data[3].title;
+		document.getElementById("twitchThreeScreenshot").src = json.streams[2].preview.medium;
+		document.getElementById("twitchThreeTitle").innerHTML = json.streams[2].channel.status;
+		document.getElementById("twitchThreeStreamer").innerHTML = json.streams[2].channel.name;
+		document.getElementById("twitchThreeViewers").innerHTML = json.streams[2].viewers;
+		document.getElementById("twitchThreeLink").href = json.streams[2].channel.url;
 		
-	// Fourth SM64 Stream replace
-	document.getElementById("repfourthImageURLSM64Data").src = repfourthImageURLSM64Data;
-	document.getElementById("repfourthImageURLSM64Data").src = repfourthImageURLSM64Data;
-	document.getElementById("fourthSM64Link").href = "https://twitch.tv/"+ fourthSM64Streamer;
-	document.getElementById("fourthSM64Streamer").innerHTML = fourthSM64Streamer;
-	document.getElementById("fourthSM64Viewers").innerHTML = fourthSM64Viewers;
-	document.getElementById("fourthSM64Title").innerHTML = fourthSM64Title;
-	
-	// Fourth SM64 replace thumbnail with embedded stream onclick
-	document.getElementById("fourthSM64replaced").addEventListener("click", function(){
-	  document.getElementById("fourthSM64replaced").innerHTML = "<iframe src=https://player.twitch.tv/?channel=" + fourthSM64Streamer+ " frameborder='0' allowfullscreen='true' scrolling='no' height='200' width='300'></iframe>";
-	});
-	
-	// Fifth SM64 stream variables
-		var fifthImageURLSM64Data = json.data[4].thumbnail_url;
-		var repfifthImageURLSM64Data = fifthImageURLSM64Data.replace("{width}x{height}", "300x200");
-		var fifthSM64Streamer = json.data[4].user_name;
-		var fifthSM64Viewers = json.data[4].viewer_count;
-		var fifthSM64Title = json.data[4].title;
+		document.getElementById("twitchFourScreenshot").src = json.streams[3].preview.medium;
+		document.getElementById("twitchFourTitle").innerHTML = json.streams[3].channel.status;
+		document.getElementById("twitchFourStreamer").innerHTML = json.streams[3].channel.name;
+		document.getElementById("twitchFourViewers").innerHTML = json.streams[3].viewers;
+		document.getElementById("twitchFourLink").href = json.streams[3].channel.url;
 		
-	// Fifth SM64 Stream replace
-	document.getElementById("repfifthImageURLSM64Data").src = repfifthImageURLSM64Data;
-	document.getElementById("repfifthImageURLSM64Data").src = repfifthImageURLSM64Data;
-	document.getElementById("fifthSM64Link").href = "https://twitch.tv/"+ fifthSM64Streamer;
-	document.getElementById("fifthSM64Streamer").innerHTML = fifthSM64Streamer;
-	document.getElementById("fifthSM64Viewers").innerHTML = fifthSM64Viewers;
-	document.getElementById("fifthSM64Title").innerHTML = fifthSM64Title;
-	
-	// Fifth SM64 replace thumbnail with embedded stream onclick
-	document.getElementById("fifthSM64replaced").addEventListener("click", function(){
-	  document.getElementById("fifthSM64replaced").innerHTML = "<iframe src=https://player.twitch.tv/?channel=" + fifthSM64Streamer+ " frameborder='0' allowfullscreen='true' scrolling='no' height='200' width='300'></iframe>";
-	});
-	
-	// sixth SM64 stream variables
-		var sixthImageURLSM64Data = json.data[5].thumbnail_url;
-		var repsixthImageURLSM64Data = sixthImageURLSM64Data.replace("{width}x{height}", "300x200");
-		var sixthSM64Streamer = json.data[5].user_name;
-		var sixthSM64Viewers = json.data[5].viewer_count;
-		var sixthSM64Title = json.data[5].title;
+		document.getElementById("twitchFiveScreenshot").src = json.streams[4].preview.medium;
+		document.getElementById("twitchFiveTitle").innerHTML = json.streams[4].channel.status;
+		document.getElementById("twitchFiveStreamer").innerHTML = json.streams[4].channel.name;
+		document.getElementById("twitchFiveViewers").innerHTML = json.streams[4].viewers;
+		document.getElementById("twitchFiveLink").href = json.streams[4].channel.url;
 		
-	// sixth SM64 Stream replace
-	document.getElementById("repsixthImageURLSM64Data").src = repsixthImageURLSM64Data;
-	document.getElementById("repsixthImageURLSM64Data").src = repsixthImageURLSM64Data;
-	document.getElementById("sixthSM64Link").href = "https://twitch.tv/"+ sixthSM64Streamer;
-	document.getElementById("sixthSM64Streamer").innerHTML = sixthSM64Streamer;
-	document.getElementById("sixthSM64Viewers").innerHTML = sixthSM64Viewers;
-	document.getElementById("sixthSM64Title").innerHTML = sixthSM64Title;
-	
-	// Sixth SM64 replace thumbnail with embedded stream onclick
-	document.getElementById("sixthSM64replaced").addEventListener("click", function(){
-	  document.getElementById("sixthSM64replaced").innerHTML = "<iframe src=https://player.twitch.tv/?channel=" + sixthSM64Streamer+ " frameborder='0' allowfullscreen='true' scrolling='no' height='200' width='300'></iframe>";
-	});
-	
-	// Seventh SM64 stream variables
-		var seventhImageURLSM64Data = json.data[6].thumbnail_url;
-		var repseventhImageURLSM64Data = seventhImageURLSM64Data.replace("{width}x{height}", "300x200");
-		var seventhSM64Streamer = json.data[6].user_name;
-		var seventhSM64Viewers = json.data[6].viewer_count;
-		var seventhSM64Title = json.data[6].title;
-		
-	// Seventh SM64 Stream replace
-	document.getElementById("repseventhImageURLSM64Data").src = repseventhImageURLSM64Data;
-	document.getElementById("repseventhImageURLSM64Data").src = repseventhImageURLSM64Data;
-	document.getElementById("seventhSM64Link").href = "https://twitch.tv/"+ seventhSM64Streamer;
-	document.getElementById("seventhSM64Streamer").innerHTML = seventhSM64Streamer;
-	document.getElementById("seventhSM64Viewers").innerHTML = seventhSM64Viewers;
-	document.getElementById("seventhSM64Title").innerHTML = seventhSM64Title;
-	
-	// Seventh SM64 replace thumbnail with embedded stream onclick
-	document.getElementById("seventhSM64replaced").addEventListener("click", function(){
-	  document.getElementById("seventhSM64replaced").innerHTML = "<iframe src=https://player.twitch.tv/?channel=" + seventhSM64Streamer+ " frameborder='0' allowfullscreen='true' scrolling='no' height='200' width='300'></iframe>";
-	});
-	
-	// eighth SM64 stream variables
-		var eighthImageURLSM64Data = json.data[7].thumbnail_url;
-		var repeighthImageURLSM64Data = eighthImageURLSM64Data.replace("{width}x{height}", "300x200");
-		var eighthSM64Streamer = json.data[7].user_name;
-		var eighthSM64Viewers = json.data[7].viewer_count;
-		var eighthSM64Title = json.data[7].title;
-		
-	// eighth SM64 Stream replace
-	document.getElementById("repeighthImageURLSM64Data").src = repeighthImageURLSM64Data;
-	document.getElementById("repeighthImageURLSM64Data").src = repeighthImageURLSM64Data;
-	document.getElementById("eighthSM64Link").href = "https://twitch.tv/"+ eighthSM64Streamer;
-	document.getElementById("eighthSM64Streamer").innerHTML = eighthSM64Streamer;
-	document.getElementById("eighthSM64Viewers").innerHTML = eighthSM64Viewers;
-	document.getElementById("eighthSM64Title").innerHTML = eighthSM64Title;
-	
-	// eighth SM64 replace thumbnail with embedded stream onclick
-	document.getElementById("eighthSM64replaced").addEventListener("click", function(){
-	  document.getElementById("eighthSM64replaced").innerHTML = "<iframe src=https://player.twitch.tv/?channel=" + eighthSM64Streamer+ " frameborder='0' allowfullscreen='true' scrolling='no' height='200' width='300'></iframe>";
-	});
-	
-// ninth SM64 stream variables
-		var ninthImageURLSM64Data = json.data[9].thumbnail_url;
-		var repninthImageURLSM64Data = ninthImageURLSM64Data.replace("{width}x{height}", "300x200");
-		var ninthSM64Streamer = json.data[9].user_name;
-		var ninthSM64Viewers = json.data[9].viewer_count;
-		var ninthSM64Title = json.data[9].title;
-		
-	// ninth SM64 Stream replace
-	document.getElementById("repninthImageURLSM64Data").src = repninthImageURLSM64Data;
-	document.getElementById("repninthImageURLSM64Data").src = repninthImageURLSM64Data;
-	document.getElementById("ninthSM64Link").href = "https://twitch.tv/"+ ninthSM64Streamer;
-	document.getElementById("ninthSM64Streamer").innerHTML = ninthSM64Streamer;
-	document.getElementById("ninthSM64Viewers").innerHTML = ninthSM64Viewers;
-	document.getElementById("ninthSM64Title").innerHTML = ninthSM64Title;
-	
-	// ninth SM64 replace thumbnail with embedded stream onclick
-	document.getElementById("ninthSM64replaced").addEventListener("click", function(){
-	  document.getElementById("ninthSM64replaced").innerHTML = "<iframe src=https://player.twitch.tv/?channel=" + ninthSM64Streamer+ " frameborder='0' allowfullscreen='true' scrolling='no' height='200' width='300'></iframe>";
-	});
-}});
-
+		document.getElementById("twitchSixScreenshot").src = json.streams[5].preview.medium;
+		document.getElementById("twitchSixTitle").innerHTML = json.streams[5].channel.status;
+		document.getElementById("twitchSixStreamer").innerHTML = json.streams[5].channel.name;
+		document.getElementById("twitchSixViewers").innerHTML = json.streams[5].viewers;
+		document.getElementById("twitchSixLink").href = json.streams[5].channel.url;
+ },
+ error: function(json) {
+	document.getElementById("TwitchStreamContainer").innerHTML = "Twitch streams not available";
+ }
+});
 
 
 
 
 
 </script>
--->
-<!--
-<div class="container">
+<div id="TwitchStreamContainer" class="container">
+  <h4>Live Super Mario 64 Twitch streams</h4>
+    <div class="card-deck">
+  <a id="twitchOneLink" href="#"><div class="card" style="width:320px">
+    <img class="card-img-top" id="twitchOneScreenshot" src="" alt="Card image" style="width:100%">
+    <div class="card-body">
+      <h5 class="card-title" id="twitchOneTitle"></h5>
+      <p class="card-text"> <span id="twitchOneStreamer"></span><br>
+	 <span id="twitchOneViewers"></span> watching</p>
+    </div>
+  </div></a>
+  
+    <a id="twitchTwoLink" href="#"><div class="card" style="width:320px">
+    <img class="card-img-top" id="twitchTwoScreenshot" src="" alt="Card image" style="width:100%">
+    <div class="card-body">
+      <h5 class="card-title" id="twitchTwoTitle"></h5>
+      <p class="card-text"> <span id="twitchTwoStreamer"></span><br>
+	  <span id="twitchTwoViewers"></span> watching</p>
+    </div>
+  </div></a>
+  
+    <a id="twitchThreeLink" href="#"><div class="card" style="width:320px">
+    <img class="card-img-top" id="twitchThreeScreenshot" src="" alt="Card image" style="width:100%">
+    <div class="card-body">
+      <h5 class="card-title" id="twitchThreeTitle"></h5>
+      <p class="card-text"> <span id="twitchThreeStreamer"></span><br>
+	  <span id="twitchThreeViewers"></span> watching</p>
+    </div>
+  </div></a>
+  
 
-    <p>   Twitch      <!-- <br> <span id="totalStreamers"></span> live streams with <span id="totalViewers"></span></p>
+  
+    <a id="twitchFourLink" href="#"><div class="card" style="width:320px">
+    <img class="card-img-top" id="twitchFourScreenshot" src="" alt="Card image" style="width:100%">
+    <div class="card-body">
+      <h5 class="card-title" id="twitchFourTitle"></h5>
+      <p class="card-text"> <span id="twitchFourStreamer"></span><br>
+	  <span id="twitchFourViewers"></span> watching</p>
+    </div>
+  </div></a>
+  
+    <a id="twitchFiveLink" href="#"><div class="card" style="width:320px">
+    <img class="card-img-top" id="twitchFiveScreenshot" src="" alt="Card image" style="width:100%">
+    <div class="card-body">
+      <h5 class="card-title" id="twitchFiveTitle"></h5>
+      <p class="card-text"> <span id="twitchFiveStreamer"></span><br>
+	  <span id="twitchFiveViewers"></span> watching</p>
+    </div>
+  </div></a>
+  
+    <a id="twitchSixLink" href="#"><div class="card" style="width:320px">
+    <img class="card-img-top" id="twitchSixScreenshot" src="" alt="Card image" style="width:100%">
+    <div class="card-body">
+      <h5 class="card-title" id="twitchSixTitle"></h5>
+      <p class="card-text"> <span id="twitchSixStreamer"></span><br>
+	  <span id="twitchSixViewers"></span> watching</p>
+    </div>
+  </div></a>
+  
+</div>
+</div>
 
-
-  <div class="card-deck">
-    <div class="card bg-light">
-      <div class="card-body text-center">
-		<div style="float:left; text-align:left;">
-			<a id="firstSM64replaced"><img id="repfirstImageURLSM64Data"/></a>
-			
-			<a id="firstSM64Link">
-			<b><span style=" word-wrap: break-word;" id="firstSM64Title"></b></span><br>
-			<span id="firstSM64Streamer"></span> - <span id="firstSM64Viewers"></span> viewers</a>
-			</div>
-		</p></a>
-      </div>
-    </div>
-    <div class="card bg-light">
-      <div class="card-body text-center">
-        <div style="float:left; text-align:left;">
-			<a id="secondSM64replaced"><img id="repsecondImageURLSM64Data"/></a>
-			
-			<a id="secondSM64Link">
-			<b><span style=" word-wrap: break-word;" id="secondSM64Title"></b></span><br>
-			<span id="secondSM64Streamer"></span> - <span id="secondSM64Viewers"></span> viewers</a>
-			</div>
-		</p></a>
-      </div>
-    </div>
-    <div class="card bg-light">
-      <div class="card-body text-center">
-                <div style="float:left; text-align:left;">
-			<a id="thirdSM64replaced"><img id="repthirdImageURLSM64Data"/></a>
-			
-			<a id="thirdSM64Link">
-			<b><span style=" word-wrap: break-word;" id="thirdSM64Title"></b></span><br>
-			<span id="thirdSM64Streamer"></span> - <span id="thirdSM64Viewers"></span> viewers</a>
-			</div>
-		</p></a>
-      </div>
-    </div>
-  </div>
-<div class="card-deck"> <!-- Second row Twitch streams 
-	    <div class="card bg-light">
-      <div class="card-body text-center">
-            <div style="float:left; text-align:left;">
-			<a id="fourthSM64replaced"><img id="repfourthImageURLSM64Data"/></a>
-			
-			<a id="fourthSM64Link">
-			<b><span style=" word-wrap: break-word;" id="fourthSM64Title"></b></span><br>
-			<span id="fourthSM64Streamer"></span> - <span id="fourthSM64Viewers"></span> viewers</a>
-			</div>
-		</p></a>
-      </div>
-    </div>
-
-	  <div class="card bg-light">
-		<div class="card-body text-center">
-		    <div style="float:left; text-align:left;">
-			<a id="fifthSM64replaced"><img id="repfifthImageURLSM64Data"/></a>
-			
-			<a id="fifthSM64Link">
-			<b><span style=" word-wrap: break-word;" id="fifthSM64Title"></b></span><br>
-			<span id="fifthSM64Streamer"></span> - <span id="fifthSM64Viewers"></span> viewers</a>
-			</div>
-		</p></a>
-		</div>
-	  </div>
-	  <div class="card bg-light">
-		<div class="card-body text-center">
-		 	<div style="float:left; text-align:left;">
-			<a id="sixthSM64replaced"><img id="repsixthImageURLSM64Data"/></a>
-			
-			<a id="sixthSM64Link">
-			<b><span style=" word-wrap: break-word;" id="sixthSM64Title"></b></span><br>
-			<span id="sixthSM64Streamer"></span> - <span id="sixthSM64Viewers"></span> viewers</a>
-			</div>
-		</p></a>
-		</div>
-		</div>
-	  </div>
-
-	</div>
-	
-	<div class="card-deck"> <!-- Third row Twitch streams 
-	    <div class="card bg-light">
-      <div class="card-body text-center">
-            <div style="float:left; text-align:left;">
-			<a id="seventhSM64replaced"><img id="repseventhImageURLSM64Data"/></a>
-			
-			<a id="seventhSM64Link">
-			<b><span style=" word-wrap: break-word;" id="seventhSM64Title"></b></span><br>
-			<span id="seventhSM64Streamer"></span> - <span id="seventhSM64Viewers"></span> viewers</a>
-			</div>
-		</p></a>
-      </div>
-    </div>
-<div class="card bg-light">
-      <div class="card-body text-center">
-            <div style="float:left; text-align:left;">
-			<a id="eighthSM64replaced"><img id="repeighthImageURLSM64Data"/></a>
-			
-			<a id="eighthSM64Link">
-			<b><span style=" word-wrap: break-word;" id="eighthSM64Title"></b></span><br>
-			<span id="eighthSM64Streamer"></span> - <span id="eighthSM64Viewers"></span> viewers</a>
-			</div>
-		</p></a>
-      </div>
-    </div>
-	  
-<div class="card bg-light">
-      <div class="card-body text-center">
-            <div style="float:left; text-align:left;">
-			<a id="ninthSM64replaced"><img id="repninthImageURLSM64Data"/></a>
-			
-			<a id="ninthSM64Link">
-			<b><span style=" word-wrap: break-word;" id="ninthSM64Title"></b></span><br>
-			<span id="ninthSM64Streamer"></span> - <span id="ninthSM64Viewers"></span> viewers</a>
-			</div>
-		</p></a>
-      </div>
-    </div>
--->
 	</div><div class="container">
 <br>
   <table class="table table-bordered table-striped table-sm">

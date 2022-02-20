@@ -1,0 +1,969 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Super Mario 64</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="star.png" type="image/png">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="https://kit.fontawesome.com/858f9458d7.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+
+   <!-- <link rel="stylesheet" href="https://bootswatch.com/4/simplex/bootstrap.min.css">-->
+	
+	<style>
+	#dropItem{
+	border-color:#eeeeee;
+	background-color:#fff;
+	}
+	
+	#dropItem:hover {
+	color: #91170a;
+	}
+	
+	#dropItem:focus{
+	color:#91170a;
+	}
+	
+	#firstSM64replaced:hover, #secondSM64replaced:hover, #thirdSM64replaced:hover, #fourthSM64replaced:hover, #fifthSM64replaced:hover, #sixthSM64replaced:hover {
+	cursor:pointer;
+	}
+	
+	#topNav {
+	width:100%;
+	top:0;
+	margin-left:-35px;
+	}
+	#topNav li {
+	display:inline;
+	float:left;
+	padding:10px;
+	margin-top:-20px;
+		background-color:white;
+	}
+	
+	#bloggerIcon:hover {
+	background-color:#ffefd5;
+	}
+	
+	#ghIcon:hover {
+	background-color:	#D3D3D3;
+	}
+
+	</style>
+</head>
+<body onload="startInterval(); dateInfo(); SM6470StarFunction(); SM64120StarFunction(); SM6416StarFunction(); SM641StarFunction(); SM640StarFunction()"> 
+
+<script>
+
+
+function SM6470StarFunction() {
+$.ajax({
+            type: "POST", //rest Type
+            dataType: 'jsonp', //mispelled
+            url: "https://www.speedrun.com/api/v1/leaderboards/sm64/category/70_Star?top=1",
+            async: false,
+            contentType: "application/json; charset=utf-8",
+            success: function (msg) {
+                //document.write(msg.data.runs[0].place);    
+				// $(document.body).append(msg.data.runs[0].run['times'].primary_t);
+				var time = msg.data.runs[0].run['times'].primary_t;
+				var minutes = Math.floor(time / 60);
+				var seconds = time - minutes * 60;
+				var link = msg.data.runs[0].run.weblink;
+				var runner = msg.data.runs[0].run['players'][0].uri;
+				var date70 = msg.data.runs[0].run.date;
+				var category = msg.data.weblink;
+				var dateValue70 = date70.valueOf();
+				var eventDate70 = moment(dateValue70);
+				var moment70 = moment();
+				var video70 = msg.data.runs[0].run.videos.links[0].uri;
+				
+				$.ajax({
+							type: "POST",
+							dataType: 'jsonp',
+							url: runner,
+							async: false,
+							contentType: "application/json; charset=utf-8",
+							success: function (msg) {
+								//document.write(msg.data.runs[0].place);    
+								// $(document.body).append(msg.data.runs[0].run['times'].primary_t);
+								var name = msg.data.names.international;
+								var nameLink = msg.data.weblink;
+								var nameTwitch = msg.data.twitch.uri;
+								document.getElementById("SM6470StarCategory").innerHTML = "<a href=" + category +">" + "70 Star"+ "</a>";
+								document.getElementById("SM6470StarTime").innerHTML = minutes + ":" + seconds.toFixed(0) ;
+								document.getElementById("SM6470StarRunner").innerHTML =   "<a href=" + nameLink +">" + name + "</a> <a href=" + nameTwitch +"> <i class='fa fa-twitch'></i>";
+								if(Math.abs(eventDate70.diff(moment70, 'days')) == 1){
+									document.getElementById("SM6470StarDate").innerHTML = date70 + " (" +  Math.abs(eventDate70.diff(moment70, 'days')) + " day ago)";
+								}
+								else{
+									document.getElementById("SM6470StarDate").innerHTML = date70 + " (" +  Math.abs(eventDate70.diff(moment70, 'days')) + " days ago)";
+								}
+								document.getElementById("SM6470StarLink").innerHTML =  "<div class='list-group'>  <a href=" + video70 +" class='list-group-item py-0 list-group-item-action'>  <i class='fa fa-play-circle'></i> Video   </a> <a href=" +link +" class='list-group-item py-0 list-group-item-action'> <i class='fa fa-trophy'></i>  Link   </a></div>";
+							}
+				 });
+				 
+				//$(document.body).append("70 star: "+ minutes + ":" + seconds);
+            }
+ });// // Just an example
+    $(document).ready(function() {
+  $("#SM64Click").click(function() {
+	$("#SM640Star").toggle();
+	$("#SM641Star").toggle();
+	$("#SM6416Star").toggle();
+	$("#SM6470Star").toggle();
+		$("#SM64120Star").toggle();
+  });
+});
+}
+function SM64120StarFunction() {
+ $.ajax({
+            type: "POST", //rest Type
+            dataType: 'jsonp', //mispelled
+            url: "https://www.speedrun.com/api/v1/leaderboards/sm64/category/120_Star?top=1",
+            async: false,
+            contentType: "application/json; charset=utf-8",
+            success: function (msg) {
+                //document.write(msg.data.runs[0].place);    
+				// $(document.body).append(msg.data.runs[0].run['times'].primary_t);
+				var time = msg.data.runs[0].run['times'].primary_t;
+				var minutes = Math.floor(time / 60);
+				var seconds = time - minutes * 60;
+				var link = msg.data.runs[0].run.weblink;
+				var runner = msg.data.runs[0].run['players'][0].uri;
+				var date120 = msg.data.runs[0].run.date;
+				var category = msg.data.weblink;
+				var hours = 1;
+				var newMin = minutes - 60;
+				var dateValue120 = date120.valueOf();
+				var eventDate120 = moment(dateValue120);
+				var moment120 = moment();
+				var video120 = msg.data.runs[0].run.videos.links[0].uri;
+				
+				$.ajax({
+							type: "POST",
+							dataType: 'jsonp',
+							url: runner,
+							async: false,
+							contentType: "application/json; charset=utf-8",
+							success: function (msg) {
+								//document.write(msg.data.runs[0].place);    
+								// $(document.body).append(msg.data.runs[0].run['times'].primary_t);
+								var name = msg.data.names.international;
+								var nameLink = msg.data.weblink;
+								var nameTwitch = msg.data.twitch.uri;
+								document.getElementById("SM64120StarCategory").innerHTML = "<a href=" + category +">" + "120 Star"+ "</a>";
+								document.getElementById("SM64120StarTime").innerHTML =hours  + ":" + newMin + ":" + seconds.toFixed(0) ;
+								document.getElementById("SM64120StarRunner").innerHTML =   "<a href=" + nameLink +">" + name + "</a> <a href=" + nameTwitch +"> <i class='fa fa-twitch'></i>";
+								if(Math.abs(eventDate120.diff(moment120, 'days')) == 1){
+									document.getElementById("SM64120StarDate").innerHTML = date120 + " (" +  Math.abs(eventDate120.diff(moment120, 'days')) + " day ago)";
+								}
+								else{
+									document.getElementById("SM64120StarDate").innerHTML = date120 + " (" +  Math.abs(eventDate120.diff(moment120, 'days')) + " days ago)";
+								}
+								document.getElementById("SM64120StarLink").innerHTML =  "<div class='list-group'>  <a href=" + video120 +" class='list-group-item py-0 list-group-item-action'>  <i class='fa fa-play-circle'></i> Video   </a> <a href=" +link +" class='list-group-item py-0 list-group-item-action'> <i class='fa fa-trophy'></i>  Link   </a></div>";
+							}
+				 });
+				 
+				//$(document.body).append("70 star: "+ minutes + ":" + seconds);
+            }
+ }); // Just an example
+}
+function SM6416StarFunction() {
+ $.ajax({
+            type: "POST", //rest Type
+            dataType: 'jsonp', //mispelled
+            url: "https://www.speedrun.com/api/v1/leaderboards/sm64/category/16_Star?top=1",
+            async: false,
+            contentType: "application/json; charset=utf-8",
+            success: function (msg) {
+                //document.write(msg.data.runs[0].place);    
+				// $(document.body).append(msg.data.runs[0].run['times'].primary_t);
+				var time = msg.data.runs[0].run['times'].primary_t;
+				var minutes = Math.floor(time / 60);
+				var seconds = time - minutes * 60;
+				var link = msg.data.runs[0].run.weblink;
+				var runner = msg.data.runs[0].run['players'][0].uri;
+				var date16 = msg.data.runs[0].run.date;
+				var category = msg.data.weblink;
+				var dateValue16 = date16.valueOf();
+				var eventDate16 = moment(dateValue16);
+				var moment16 = moment();
+				var video16 = msg.data.runs[0].run.videos.links[0].uri;
+				
+				$.ajax({
+							type: "POST",
+							dataType: 'jsonp',
+							url: runner,
+							async: false,
+							contentType: "application/json; charset=utf-8",
+							success: function (msg) {
+								//document.write(msg.data.runs[0].place);    
+								// $(document.body).append(msg.data.runs[0].run['times'].primary_t);
+								var name = msg.data.names.international;
+								var nameLink = msg.data.weblink;
+								var nameTwitch = msg.data.twitch.uri;
+								document.getElementById("SM6416StarCategory").innerHTML = "<a href=" + category +">" + "16 Star"+ "</a>";
+								document.getElementById("SM6416StarTime").innerHTML = minutes + ":" + seconds.toFixed(2) ;
+								document.getElementById("SM6416StarRunner").innerHTML =   "<a href=" + nameLink +">" + name + "</a> <a href=" + nameTwitch +"> <i class='fa fa-twitch'></i>";
+								
+								
+								if(Math.abs(eventDate16.diff(moment16, 'days')) == 1){
+									document.getElementById("SM6416StarDate").innerHTML = date16 + " (" +  Math.abs(eventDate16.diff(moment16, 'days')) + " day ago)";
+								}
+								else{
+									document.getElementById("SM6416StarDate").innerHTML = date16 + " (" +  Math.abs(eventDate16.diff(moment16, 'days')) + " days ago)";
+								}
+								
+								document.getElementById("SM6416StarLink").innerHTML =  "<div class='list-group'>  <a href=" + video16 +" class='list-group-item py-0 list-group-item-action'>  <i class='fa fa-play-circle'></i> Video   </a> <a href=" +link +" class='list-group-item py-0 list-group-item-action'> <i class='fa fa-trophy'></i>  Link   </a></div>";
+							}
+				 });
+				 
+				//$(document.body).append("70 star: "+ minutes + ":" + seconds);
+            }
+ });// Just an example
+}
+function SM641StarFunction() {
+ $.ajax({
+            type: "POST", //rest Type
+            dataType: 'jsonp', //mispelled
+            url: "https://www.speedrun.com/api/v1/leaderboards/sm64/category/1_Star?top=1",
+            async: false,
+            contentType: "application/json; charset=utf-8",
+            success: function (msg) {
+                //document.write(msg.data.runs[0].place);    
+				// $(document.body).append(msg.data.runs[0].run['times'].primary_t);
+				var time = msg.data.runs[0].run['times'].primary_t;
+				var minutes = Math.floor(time / 60);
+				var seconds = time - minutes * 60;
+				var link = msg.data.runs[0].run.weblink;
+				var runner = msg.data.runs[0].run['players'][0].uri;
+				var date1 = msg.data.runs[0].run.date;
+				var category = msg.data.weblink;
+				var dateValue1 = date1.valueOf();
+				var eventDate1 = moment(dateValue1);
+				var moment1 = moment();
+				var video1 = msg.data.runs[0].run.videos.links[0].uri;
+				
+				$.ajax({
+							type: "POST",
+							dataType: 'jsonp',
+							url: runner,
+							async: false,
+							contentType: "application/json; charset=utf-8",
+							success: function (msg) {
+								//document.write(msg.data.runs[0].place);    
+								// $(document.body).append(msg.data.runs[0].run['times'].primary_t);
+								var name = msg.data.names.international;
+								var nameLink = msg.data.weblink;
+								var nameTwitch = msg.data.twitch.uri;
+								document.getElementById("SM641StarCategory").innerHTML = "<a href=" + category +">" + "1 Star"+ "</a>";
+								document.getElementById("SM641StarTime").innerHTML = minutes + ":0" + seconds.toFixed(2) ;
+								document.getElementById("SM641StarRunner").innerHTML =   "<a href=" + nameLink +">" + name + "</a> <a href=" + nameTwitch +"> <i class='fa fa-twitch'></i>";
+								if(Math.abs(eventDate1.diff(moment1, 'days')) == 1){
+									document.getElementById("SM641StarDate").innerHTML = date1 + " (" +  Math.abs(eventDate1.diff(moment1, 'days')) + " day ago)";
+								}
+								else{
+									document.getElementById("SM641StarDate").innerHTML = date1 + " (" +  Math.abs(eventDate1.diff(moment1, 'days')) + " days ago)";
+								}
+								document.getElementById("SM641StarLink").innerHTML =  "<div class='list-group'>  <a href=" + video1 +" class='list-group-item py-0 list-group-item-action'>  <i class='fa fa-play-circle'></i> Video   </a> <a href=" +link +" class='list-group-item py-0 list-group-item-action'> <i class='fa fa-trophy'></i>  Link   </a></div>";
+							}
+				 });
+				 
+				//$(document.body).append("70 star: "+ minutes + ":" + seconds);
+            }
+ }); // Just an example
+}
+function SM640StarFunction() {
+ $.ajax({
+            type: "POST", //rest Type
+            dataType: 'jsonp', //mispelled
+            url: "https://www.speedrun.com/api/v1/leaderboards/sm64/category/0_Star?top=1",
+            async: false,
+            contentType: "application/json; charset=utf-8",
+            success: function (msg) {
+                //document.write(msg.data.runs[0].place);    
+				// $(document.body).append(msg.data.runs[0].run['times'].primary_t);
+				var time = msg.data.runs[0].run['times'].primary_t;
+				var minutes = Math.floor(time / 60);
+				var seconds = time - minutes * 60;
+				var link = msg.data.runs[0].run.weblink;
+				var runner = msg.data.runs[0].run['players'][0].uri;
+				var date0 = msg.data.runs[0].run.date;
+				var category = msg.data.weblink;			
+				var dateValue0 = date0.valueOf();
+				var eventDate0 = moment(dateValue0);
+				var moment0 = moment();
+				var video0 = msg.data.runs[0].run.videos.links[0].uri;
+				
+				$.ajax({
+							type: "POST",
+							dataType: 'jsonp',
+							url: runner,
+							async: false,
+							contentType: "application/json; charset=utf-8",
+							success: function (msg) {
+								//document.write(msg.data.runs[0].place);    
+								// $(document.body).append(msg.data.runs[0].run['times'].primary_t);
+								var name = msg.data.names.international;
+								var nameLink = msg.data.weblink;
+								var nameTwitch = msg.data.twitch.uri;
+								document.getElementById("SM640StarCategory").innerHTML = "<a href=" + category +">" + "0 Star"+ "</a>";
+								document.getElementById("SM640StarTime").innerHTML = minutes + ":" + seconds.toFixed(2) ;
+								document.getElementById("SM640StarRunner").innerHTML =   "<a href=" + nameLink +">" + name + "</a> <a href=" + nameTwitch +"> <i class='fa fa-twitch'></i>";
+								if(Math.abs(eventDate0.diff(moment0, 'days')) == 1){
+									document.getElementById("SM640StarDate").innerHTML = date0 + " (" +  Math.abs(eventDate0.diff(moment0, 'days')) + " day ago)";
+								}
+								else{
+									document.getElementById("SM640StarDate").innerHTML = date0 + " (" +  Math.abs(eventDate0.diff(moment0, 'days')) + " days ago)";
+								}
+								document.getElementById("SM640StarLink").innerHTML =  "<div class='list-group'>  <a href=" + video0 +" class='list-group-item py-0 list-group-item-action'>  <i class='fa fa-play-circle'></i> Video   </a> <a href=" +link +" class='list-group-item py-0 list-group-item-action'> <i class='fa fa-trophy'></i>  Link   </a></div>";
+
+							}
+				 });
+				 
+				//$(document.body).append("70 star: "+ minutes + ":" + seconds);
+            }
+ }); // Just an example
+}
+</script>
+
+<script>
+function dateInfo() {
+  var d = new Date();
+  var n = d.toUTCString();
+  document.getElementById("UTCdate").innerHTML = n;
+
+}
+
+function startInterval(){
+    setInterval("dateInfo();",1000);
+}
+
+$(document).ready(function(){
+  $("button").click(function(){
+    $("p").toggle();
+  });
+});
+</script>
+
+
+<div>
+<ul id="topNav">
+	<li><span style="color:#D3D3D3">A project by</span> <span style="color:#939393">MarioSpeed</span></li>
+
+	<a href="https://mariospeedruns.blogspot.com/"><li id="bloggerIcon"><i class="fab fa-blogger" style="font-size:16px;color:orange;"></i></li></a>
+	<a href="https://github.com/mariospeed/mariospeed.github.io"><li id="ghIcon"><i class="fab fa-github" style="font-size:16px;color:black"></i></li></a>
+
+</div>
+<br><br>
+
+<div class="container" id="cont">
+  <h2>Super Mario 64</h2>
+  
+  <ul class="list-group list-group-horizontal">
+    <a href="https://www.speedrun.com/sm64"><li class="list-group-item">Speedrun.com</li></a>
+    <a href="https://www.twitch.tv/directory/game/Super%20Mario%2064"><li class="list-group-item">Twitch</li></a>
+    <a href="https://www.mariowiki.com/Super_Mario_64"><li class="list-group-item">Mario Wiki</li></a>
+	<a href="https://ukikipedia.net/wiki/RTA_Guide"><li class="list-group-item">Ukikipedia</li></a>
+	  
+  </ul><br>
+  <p>World Records via Speedrun.com API <span style="float:right;" id="UTCdate"></span></p>      
+ 
+  <table class="table  table-condensed">
+    <thead>
+      
+    </thead>
+    <tbody>
+      <tr data-toggle="collapse" data-target="#accordion0" class="clickable">
+	    <td style="width:10%" id="SM640StarCategory"></td>
+        <td style="width:10%" id="SM640StarTime"></td>
+        <td style="width:10%" id="SM640StarRunner"></td>
+		<td style="width:15%" id="SM640StarDate"></td>
+		<td style="width:10%" id="SM640StarLink">  </td>
+      </tr>
+	         
+      <tr>
+        <td id="SM641StarCategory"></td>
+        <td id="SM641StarTime"></td>
+        <td  id="SM641StarRunner"></td>
+		<td id="SM641StarDate"></td>
+		<td id="SM641StarLink">  </td>
+      </tr>
+      <tr>
+        <td id="SM6416StarCategory"></td>
+        <td id="SM6416StarTime"></td>
+        <td  id="SM6416StarRunner"></td>
+		<td id="SM6416StarDate"></td>
+		<td id="SM6416StarLink">  </td>
+      </tr>
+	   <tr>
+        <td id="SM6470StarCategory"></td>
+        <td id="SM6470StarTime"></td>
+        <td  id="SM6470StarRunner"></td>
+		<td id="SM6470StarDate"></td>
+		<td id="SM6470StarLink">  </td>
+      </tr>
+	  	   <tr>
+        <td id="SM64120StarCategory"></td>
+        <td id="SM64120StarTime"></td>
+        <td  id="SM64120StarRunner"></td>
+		<td id="SM64120StarDate"></td>
+		<td id="SM64120StarLink">  </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!--
+<script>
+// Twitch API data retrieval
+$.ajax({
+  type: 'POST', 
+  url: 'https://api.twitch.tv/helix/streams?game_id=2692',
+  headers: {'Client-ID': 'zc2z5a3bs1ak2qtr3ye7dc9ymfnwg7'},
+  success: function(json) {
+  
+	// General Twitch data
+		//var totalStreamers = json.data.length;
+		//document.getElementById("totalStreamers").innerHTML = totalStreamers;
+		
+		/*
+		var totalViewers = "";
+		var totalViewersSum = "";
+			for (i = 0; i < json.data.length; i++) {
+			  totalViewersArray = json.data[i].viewer_count;
+			  console.log(totalViewersArray);
+			  parseInt(totalViewersArray)
+			  totalViewersSum += parseInt(totalViewersArray++);
+			  console.log(totalViewersSum);
+			}
+		*/
+		
+
+	
+	// First SM64 stream variables
+  		var firstImageURLSM64Data = json.data[0].thumbnail_url;
+		var repfirstImageURLSM64Data = firstImageURLSM64Data.replace("{width}x{height}", "300x200");
+		var firstSM64Streamer = json.data[0].user_name;
+		var firstSM64Viewers = json.data[0].viewer_count;
+		var firstSM64Title = json.data[0].title;
+	// sample 'https://api.twitch.tv/helix/games?name=Okami'
+	console.log(json)
+	
+	// First SM64 Stream replace
+	document.getElementById("repfirstImageURLSM64Data").src = repfirstImageURLSM64Data;
+	document.getElementById("repfirstImageURLSM64Data").src = repfirstImageURLSM64Data;
+	document.getElementById("firstSM64Link").href = "https://twitch.tv/"+ firstSM64Streamer;
+	document.getElementById("firstSM64Streamer").innerHTML = firstSM64Streamer;
+	document.getElementById("firstSM64Viewers").innerHTML = firstSM64Viewers;
+	document.getElementById("firstSM64Title").innerHTML = firstSM64Title;
+	
+	// First SM64 replace thumbnail with embedded stream onclick
+	document.getElementById("firstSM64replaced").addEventListener("click", function(){
+	  document.getElementById("firstSM64replaced").innerHTML = "<iframe src=https://player.twitch.tv/?channel=" + firstSM64Streamer+ " frameborder='0' allowfullscreen='true' scrolling='no' height='200' width='300'></iframe>";
+	});
+
+
+
+	
+	//////////////
+	
+	// Second SM64 stream variables
+  		var secondImageURLSM64Data = json.data[1].thumbnail_url;
+		var repsecondImageURLSM64Data = secondImageURLSM64Data.replace("{width}x{height}", "300x200");
+		var secondSM64Streamer = json.data[1].user_name;
+		var secondSM64Viewers = json.data[1].viewer_count;
+		var secondSM64Title = json.data[1].title;
+	
+	// Second SM64 Stream replace
+	document.getElementById("repsecondImageURLSM64Data").src = repsecondImageURLSM64Data;
+	document.getElementById("repsecondImageURLSM64Data").src = repsecondImageURLSM64Data;
+	document.getElementById("secondSM64Link").href = "https://twitch.tv/"+ secondSM64Streamer;
+	document.getElementById("secondSM64Streamer").innerHTML = secondSM64Streamer;
+	document.getElementById("secondSM64Viewers").innerHTML = secondSM64Viewers;
+	document.getElementById("secondSM64Title").innerHTML = secondSM64Title;
+	
+	// Second SM64 replace thumbnail with embedded stream onclick
+	document.getElementById("secondSM64replaced").addEventListener("click", function(){
+	  document.getElementById("secondSM64replaced").innerHTML = "<iframe src=https://player.twitch.tv/?channel=" + secondSM64Streamer+ " frameborder='0' allowfullscreen='true' scrolling='no' height='200' width='300'></iframe>";
+	});
+	
+	///////////////
+	
+	// Third SM64 stream variables
+		var thirdImageURLSM64Data = json.data[2].thumbnail_url;
+		var repthirdImageURLSM64Data = thirdImageURLSM64Data.replace("{width}x{height}", "300x200");
+		var thirdSM64Streamer = json.data[2].user_name;
+		var thirdSM64Viewers = json.data[2].viewer_count;
+		var thirdSM64Title = json.data[2].title;
+		
+	// Third SM64 Stream replace
+	document.getElementById("repthirdImageURLSM64Data").src = repthirdImageURLSM64Data;
+	document.getElementById("repthirdImageURLSM64Data").src = repthirdImageURLSM64Data;
+	document.getElementById("thirdSM64Link").href = "https://twitch.tv/"+ thirdSM64Streamer;
+	document.getElementById("thirdSM64Streamer").innerHTML = thirdSM64Streamer;
+	document.getElementById("thirdSM64Viewers").innerHTML = thirdSM64Viewers;
+	document.getElementById("thirdSM64Title").innerHTML = thirdSM64Title;
+	
+	// Second SM64 replace thumbnail with embedded stream onclick
+	document.getElementById("thirdSM64replaced").addEventListener("click", function(){
+	  document.getElementById("thirdSM64replaced").innerHTML = "<iframe src=https://player.twitch.tv/?channel=" + thirdSM64Streamer+ " frameborder='0' allowfullscreen='true' scrolling='no' height='200' width='300'></iframe>";
+	});
+	///////////////
+	
+	// Fourth SM64 stream variables 
+		var fourthImageURLSM64Data = json.data[3].thumbnail_url;
+		var repfourthImageURLSM64Data = fourthImageURLSM64Data.replace("{width}x{height}", "300x200");
+		var fourthSM64Streamer = json.data[3].user_name;
+		var fourthSM64Viewers = json.data[3].viewer_count;
+		var fourthSM64Title = json.data[3].title;
+		
+	// Fourth SM64 Stream replace
+	document.getElementById("repfourthImageURLSM64Data").src = repfourthImageURLSM64Data;
+	document.getElementById("repfourthImageURLSM64Data").src = repfourthImageURLSM64Data;
+	document.getElementById("fourthSM64Link").href = "https://twitch.tv/"+ fourthSM64Streamer;
+	document.getElementById("fourthSM64Streamer").innerHTML = fourthSM64Streamer;
+	document.getElementById("fourthSM64Viewers").innerHTML = fourthSM64Viewers;
+	document.getElementById("fourthSM64Title").innerHTML = fourthSM64Title;
+	
+	// Fourth SM64 replace thumbnail with embedded stream onclick
+	document.getElementById("fourthSM64replaced").addEventListener("click", function(){
+	  document.getElementById("fourthSM64replaced").innerHTML = "<iframe src=https://player.twitch.tv/?channel=" + fourthSM64Streamer+ " frameborder='0' allowfullscreen='true' scrolling='no' height='200' width='300'></iframe>";
+	});
+	
+	// Fifth SM64 stream variables
+		var fifthImageURLSM64Data = json.data[4].thumbnail_url;
+		var repfifthImageURLSM64Data = fifthImageURLSM64Data.replace("{width}x{height}", "300x200");
+		var fifthSM64Streamer = json.data[4].user_name;
+		var fifthSM64Viewers = json.data[4].viewer_count;
+		var fifthSM64Title = json.data[4].title;
+		
+	// Fifth SM64 Stream replace
+	document.getElementById("repfifthImageURLSM64Data").src = repfifthImageURLSM64Data;
+	document.getElementById("repfifthImageURLSM64Data").src = repfifthImageURLSM64Data;
+	document.getElementById("fifthSM64Link").href = "https://twitch.tv/"+ fifthSM64Streamer;
+	document.getElementById("fifthSM64Streamer").innerHTML = fifthSM64Streamer;
+	document.getElementById("fifthSM64Viewers").innerHTML = fifthSM64Viewers;
+	document.getElementById("fifthSM64Title").innerHTML = fifthSM64Title;
+	
+	// Fifth SM64 replace thumbnail with embedded stream onclick
+	document.getElementById("fifthSM64replaced").addEventListener("click", function(){
+	  document.getElementById("fifthSM64replaced").innerHTML = "<iframe src=https://player.twitch.tv/?channel=" + fifthSM64Streamer+ " frameborder='0' allowfullscreen='true' scrolling='no' height='200' width='300'></iframe>";
+	});
+	
+	// sixth SM64 stream variables
+		var sixthImageURLSM64Data = json.data[5].thumbnail_url;
+		var repsixthImageURLSM64Data = sixthImageURLSM64Data.replace("{width}x{height}", "300x200");
+		var sixthSM64Streamer = json.data[5].user_name;
+		var sixthSM64Viewers = json.data[5].viewer_count;
+		var sixthSM64Title = json.data[5].title;
+		
+	// sixth SM64 Stream replace
+	document.getElementById("repsixthImageURLSM64Data").src = repsixthImageURLSM64Data;
+	document.getElementById("repsixthImageURLSM64Data").src = repsixthImageURLSM64Data;
+	document.getElementById("sixthSM64Link").href = "https://twitch.tv/"+ sixthSM64Streamer;
+	document.getElementById("sixthSM64Streamer").innerHTML = sixthSM64Streamer;
+	document.getElementById("sixthSM64Viewers").innerHTML = sixthSM64Viewers;
+	document.getElementById("sixthSM64Title").innerHTML = sixthSM64Title;
+	
+	// Sixth SM64 replace thumbnail with embedded stream onclick
+	document.getElementById("sixthSM64replaced").addEventListener("click", function(){
+	  document.getElementById("sixthSM64replaced").innerHTML = "<iframe src=https://player.twitch.tv/?channel=" + sixthSM64Streamer+ " frameborder='0' allowfullscreen='true' scrolling='no' height='200' width='300'></iframe>";
+	});
+	
+	// Seventh SM64 stream variables
+		var seventhImageURLSM64Data = json.data[6].thumbnail_url;
+		var repseventhImageURLSM64Data = seventhImageURLSM64Data.replace("{width}x{height}", "300x200");
+		var seventhSM64Streamer = json.data[6].user_name;
+		var seventhSM64Viewers = json.data[6].viewer_count;
+		var seventhSM64Title = json.data[6].title;
+		
+	// Seventh SM64 Stream replace
+	document.getElementById("repseventhImageURLSM64Data").src = repseventhImageURLSM64Data;
+	document.getElementById("repseventhImageURLSM64Data").src = repseventhImageURLSM64Data;
+	document.getElementById("seventhSM64Link").href = "https://twitch.tv/"+ seventhSM64Streamer;
+	document.getElementById("seventhSM64Streamer").innerHTML = seventhSM64Streamer;
+	document.getElementById("seventhSM64Viewers").innerHTML = seventhSM64Viewers;
+	document.getElementById("seventhSM64Title").innerHTML = seventhSM64Title;
+	
+	// Seventh SM64 replace thumbnail with embedded stream onclick
+	document.getElementById("seventhSM64replaced").addEventListener("click", function(){
+	  document.getElementById("seventhSM64replaced").innerHTML = "<iframe src=https://player.twitch.tv/?channel=" + seventhSM64Streamer+ " frameborder='0' allowfullscreen='true' scrolling='no' height='200' width='300'></iframe>";
+	});
+	
+	// eighth SM64 stream variables
+		var eighthImageURLSM64Data = json.data[7].thumbnail_url;
+		var repeighthImageURLSM64Data = eighthImageURLSM64Data.replace("{width}x{height}", "300x200");
+		var eighthSM64Streamer = json.data[7].user_name;
+		var eighthSM64Viewers = json.data[7].viewer_count;
+		var eighthSM64Title = json.data[7].title;
+		
+	// eighth SM64 Stream replace
+	document.getElementById("repeighthImageURLSM64Data").src = repeighthImageURLSM64Data;
+	document.getElementById("repeighthImageURLSM64Data").src = repeighthImageURLSM64Data;
+	document.getElementById("eighthSM64Link").href = "https://twitch.tv/"+ eighthSM64Streamer;
+	document.getElementById("eighthSM64Streamer").innerHTML = eighthSM64Streamer;
+	document.getElementById("eighthSM64Viewers").innerHTML = eighthSM64Viewers;
+	document.getElementById("eighthSM64Title").innerHTML = eighthSM64Title;
+	
+	// eighth SM64 replace thumbnail with embedded stream onclick
+	document.getElementById("eighthSM64replaced").addEventListener("click", function(){
+	  document.getElementById("eighthSM64replaced").innerHTML = "<iframe src=https://player.twitch.tv/?channel=" + eighthSM64Streamer+ " frameborder='0' allowfullscreen='true' scrolling='no' height='200' width='300'></iframe>";
+	});
+	
+// ninth SM64 stream variables
+		var ninthImageURLSM64Data = json.data[9].thumbnail_url;
+		var repninthImageURLSM64Data = ninthImageURLSM64Data.replace("{width}x{height}", "300x200");
+		var ninthSM64Streamer = json.data[9].user_name;
+		var ninthSM64Viewers = json.data[9].viewer_count;
+		var ninthSM64Title = json.data[9].title;
+		
+	// ninth SM64 Stream replace
+	document.getElementById("repninthImageURLSM64Data").src = repninthImageURLSM64Data;
+	document.getElementById("repninthImageURLSM64Data").src = repninthImageURLSM64Data;
+	document.getElementById("ninthSM64Link").href = "https://twitch.tv/"+ ninthSM64Streamer;
+	document.getElementById("ninthSM64Streamer").innerHTML = ninthSM64Streamer;
+	document.getElementById("ninthSM64Viewers").innerHTML = ninthSM64Viewers;
+	document.getElementById("ninthSM64Title").innerHTML = ninthSM64Title;
+	
+	// ninth SM64 replace thumbnail with embedded stream onclick
+	document.getElementById("ninthSM64replaced").addEventListener("click", function(){
+	  document.getElementById("ninthSM64replaced").innerHTML = "<iframe src=https://player.twitch.tv/?channel=" + ninthSM64Streamer+ " frameborder='0' allowfullscreen='true' scrolling='no' height='200' width='300'></iframe>";
+	});
+}});
+
+
+
+
+
+
+</script>
+-->
+<!--
+<div class="container">
+
+    <p>   Twitch      <!-- <br> <span id="totalStreamers"></span> live streams with <span id="totalViewers"></span></p>
+
+
+  <div class="card-deck">
+    <div class="card bg-light">
+      <div class="card-body text-center">
+		<div style="float:left; text-align:left;">
+			<a id="firstSM64replaced"><img id="repfirstImageURLSM64Data"/></a>
+			
+			<a id="firstSM64Link">
+			<b><span style=" word-wrap: break-word;" id="firstSM64Title"></b></span><br>
+			<span id="firstSM64Streamer"></span> - <span id="firstSM64Viewers"></span> viewers</a>
+			</div>
+		</p></a>
+      </div>
+    </div>
+    <div class="card bg-light">
+      <div class="card-body text-center">
+        <div style="float:left; text-align:left;">
+			<a id="secondSM64replaced"><img id="repsecondImageURLSM64Data"/></a>
+			
+			<a id="secondSM64Link">
+			<b><span style=" word-wrap: break-word;" id="secondSM64Title"></b></span><br>
+			<span id="secondSM64Streamer"></span> - <span id="secondSM64Viewers"></span> viewers</a>
+			</div>
+		</p></a>
+      </div>
+    </div>
+    <div class="card bg-light">
+      <div class="card-body text-center">
+                <div style="float:left; text-align:left;">
+			<a id="thirdSM64replaced"><img id="repthirdImageURLSM64Data"/></a>
+			
+			<a id="thirdSM64Link">
+			<b><span style=" word-wrap: break-word;" id="thirdSM64Title"></b></span><br>
+			<span id="thirdSM64Streamer"></span> - <span id="thirdSM64Viewers"></span> viewers</a>
+			</div>
+		</p></a>
+      </div>
+    </div>
+  </div>
+<div class="card-deck"> <!-- Second row Twitch streams 
+	    <div class="card bg-light">
+      <div class="card-body text-center">
+            <div style="float:left; text-align:left;">
+			<a id="fourthSM64replaced"><img id="repfourthImageURLSM64Data"/></a>
+			
+			<a id="fourthSM64Link">
+			<b><span style=" word-wrap: break-word;" id="fourthSM64Title"></b></span><br>
+			<span id="fourthSM64Streamer"></span> - <span id="fourthSM64Viewers"></span> viewers</a>
+			</div>
+		</p></a>
+      </div>
+    </div>
+
+	  <div class="card bg-light">
+		<div class="card-body text-center">
+		    <div style="float:left; text-align:left;">
+			<a id="fifthSM64replaced"><img id="repfifthImageURLSM64Data"/></a>
+			
+			<a id="fifthSM64Link">
+			<b><span style=" word-wrap: break-word;" id="fifthSM64Title"></b></span><br>
+			<span id="fifthSM64Streamer"></span> - <span id="fifthSM64Viewers"></span> viewers</a>
+			</div>
+		</p></a>
+		</div>
+	  </div>
+	  <div class="card bg-light">
+		<div class="card-body text-center">
+		 	<div style="float:left; text-align:left;">
+			<a id="sixthSM64replaced"><img id="repsixthImageURLSM64Data"/></a>
+			
+			<a id="sixthSM64Link">
+			<b><span style=" word-wrap: break-word;" id="sixthSM64Title"></b></span><br>
+			<span id="sixthSM64Streamer"></span> - <span id="sixthSM64Viewers"></span> viewers</a>
+			</div>
+		</p></a>
+		</div>
+		</div>
+	  </div>
+
+	</div>
+	
+	<div class="card-deck"> <!-- Third row Twitch streams 
+	    <div class="card bg-light">
+      <div class="card-body text-center">
+            <div style="float:left; text-align:left;">
+			<a id="seventhSM64replaced"><img id="repseventhImageURLSM64Data"/></a>
+			
+			<a id="seventhSM64Link">
+			<b><span style=" word-wrap: break-word;" id="seventhSM64Title"></b></span><br>
+			<span id="seventhSM64Streamer"></span> - <span id="seventhSM64Viewers"></span> viewers</a>
+			</div>
+		</p></a>
+      </div>
+    </div>
+<div class="card bg-light">
+      <div class="card-body text-center">
+            <div style="float:left; text-align:left;">
+			<a id="eighthSM64replaced"><img id="repeighthImageURLSM64Data"/></a>
+			
+			<a id="eighthSM64Link">
+			<b><span style=" word-wrap: break-word;" id="eighthSM64Title"></b></span><br>
+			<span id="eighthSM64Streamer"></span> - <span id="eighthSM64Viewers"></span> viewers</a>
+			</div>
+		</p></a>
+      </div>
+    </div>
+	  
+<div class="card bg-light">
+      <div class="card-body text-center">
+            <div style="float:left; text-align:left;">
+			<a id="ninthSM64replaced"><img id="repninthImageURLSM64Data"/></a>
+			
+			<a id="ninthSM64Link">
+			<b><span style=" word-wrap: break-word;" id="ninthSM64Title"></b></span><br>
+			<span id="ninthSM64Streamer"></span> - <span id="ninthSM64Viewers"></span> viewers</a>
+			</div>
+		</p></a>
+      </div>
+    </div>
+-->
+	</div><div class="container">
+<br>
+  <table class="table table-bordered table-striped table-sm">
+    <ul class="list-group list-group-horizontal">
+   <li class="list-group-item"><a href="https://ukikipedia.net/wiki/RTA_Guide">Ukikipedia RTA Guide</a></li>
+    <a href="https://ukikipedia.net/wiki/RTA_Guide/0/1_Star"><li class="list-group-item">0/1 Star</li></a>
+	<a href="https://ukikipedia.net/wiki/RTA_Guide/16_Star"><li class="list-group-item">16 Star</li></a>
+    <a href="https://ukikipedia.net/wiki/RTA_Guide/70_Star"><li class="list-group-item">70 Star</li></a>
+    <a href="https://ukikipedia.net/wiki/RTA_Guide/120_Star"><li class="list-group-item">120 Star</li></a>
+	</ul>
+    <tbody>
+
+      <tr style="font-size:0.7em;">
+        <td style="font-weight:bold;"><a href="https://ukikipedia.net/wiki/RTA_Guide/Bob-omb_Battlefield">Bob-omb Battlefield</a></td>
+        <td><a href="https://ukikipedia.net/wiki/RTA_Guide/Big_Bob-omb_on_the_Summit">Big Bob-omb on the Summit</a></td>
+        <td><a href="https://ukikipedia.net/wiki/RTA_Guide/Footrace_with_Koopa_the_Quick">Footrace with Koopa the Quick</a></td>
+        <td><a href="https://ukikipedia.net/wiki/RTA_Guide/Shoot_to_the_Island_in_the_Sky">Shoot to the Island in the Sky</a></td>
+        <td><a href="https://ukikipedia.net/wiki/RTA_Guide/Find_the_8_Red_Coins">Find the 8 Red Coins</a></td>
+        <td><a href="https://ukikipedia.net/wiki/RTA_Guide/Mario_Wings_to_the_Sky">Mario Wings to the Sky</a></td>
+        <td><a href="https://ukikipedia.net/wiki/RTA_Guide/Behind_Chain_Chomp%27s_Gate">Behind Chain Chomp's Gate</a></td>
+      </tr>
+      <tr style="font-size:0.7em;">
+        <td style="font-weight:bold;"><a href="https://ukikipedia.net/wiki/RTA_Guide/WF">Whomp's Fortress</a></td>
+        <td><a href="https://ukikipedia.net/wiki/RTA_Guide/Chip_off_Whomp%27s_Block">	
+Chip off Whomp's Block</a></td>
+        <td><a href="https://ukikipedia.net/wiki/RTA_Guide/To_the_Top_of_the_Fortress">To the Top of the Fortress</a></td>
+        <td><a href="https://ukikipedia.net/wiki/RTA_Guide/Shoot_into_the_Wild_Blue">Shoot into the Wild Blue</a></td>
+        <td><a href="https://ukikipedia.net/wiki/RTA_Guide/Red_Coins_on_the_Floating_Isle">Red Coins on the Floating Isle</a></td>
+        <td><a href="https://ukikipedia.net/wiki/RTA_Guide/Fall_onto_the_Caged_Island">Fall onto the Caged Island</a></td>
+		<td><a href="https://ukikipedia.net/wiki/RTA_Guide/Blast_Away_the_Wall">Blast Away the Wall</a></td>
+      </tr>
+      <tr style="font-size:0.7em;">
+        <td style="font-weight:bold;"><a href="https://ukikipedia.net/wiki/RTA_Guide/JRB">Jolly Roger Bay</a></td>
+        <td><a href="https://ukikipedia.net/wiki/RTA_Guide/Plunder_in_the_Sunken_Ship">	
+Plunder in the Sunken Ship</a></td>
+        <td><a href="https://ukikipedia.net/wiki/RTA_Guide/Can_the_Eel_Come_out_and_Play%3F">Can the Eel Come out and Play?</a></td>
+        <td><a href="https://ukikipedia.net/wiki/RTA_Guide/Treasure_of_the_Ocean_Cave">Treasure of the Ocean Cave</a></td>
+        <td><a href="https://ukikipedia.net/wiki/RTA_Guide/Red_Coins_on_the_Ship_Afloat">Red Coins on the Ship Afloat</a></td>
+        <td><a href="https://ukikipedia.net/wiki/RTA_Guide/Blast_to_the_Stone_Pillar">Blast to the Stone Pillar</a></td>
+		<td><a href="https://ukikipedia.net/wiki/RTA_Guide/Through_the_Jet_Stream_(JRB)">Through the Jet Stream</a></td>
+      </tr>
+      <tr style="font-size:0.7em;">
+        <td style="font-weight:bold;"><a href="https://ukikipedia.net/wiki/RTA_Guide/CCM">Cool, Cool Mountain</a></td>
+        <td><a href="https://ukikipedia.net/wiki/RTA_Guide/Slip_Slidin%27_Away">	
+Slip Slidin' Away</a></td>
+
+        <td><a href="https://ukikipedia.net/wiki/RTA_Guide/Li%27l_Penguin_Lost">Li'l Penguin Lost</a></td>
+        <td><a href="https://ukikipedia.net/wiki/RTA_Guide/Big_Penguin_Race">Big Penguin Race</a></td>
+        <td><a href="https://ukikipedia.net/wiki/RTA_Guide/Snowman%27s_Lost_His_Head">Frosty Slide for 8 Red Coins</a></td>
+		<td><a href="https://ukikipedia.net/wiki/RTA_Guide/Snowman%27s_Lost_His_Head">Snowman's Lost His Head</a></td>
+		<td><a href="https://ukikipedia.net/wiki/RTA_Guide/Wall_Kicks_Will_Work">Wall Kicks Will Work</a></td>
+      </tr>
+      <tr style="font-size:0.7em;">
+        <td style="font-weight:bold;"><a href="https://ukikipedia.net/wiki/RTA_Guide/BBH">Big Boo's Haunt</a></td>
+        <td><a href="https://ukikipedia.net/wiki/RTA_Guide/Go_on_a_Ghost_Hunt">	
+Go on a Ghost Hunt</a></td>
+
+        <td><a href="https://ukikipedia.net/wiki/RTA_Guide/Ride_Big_Boo%27s_Merry-Go-Round">Ride Big Boo's Merry-Go-Round</a></td>
+        <td><a href="https://ukikipedia.net/wiki/RTA_Guide/Secret_of_the_Haunted_Books">Secret of the Haunted Books</a></td>
+        <td><a href="https://ukikipedia.net/wiki/RTA_Guide/Seek_the_8_Red_Coins">Seek the 8 Red Coins</a></td>
+		<td><a href="https://ukikipedia.net/wiki/RTA_Guide/Big_Boo%27s_Balcony">Big Boo's Balcony</a></td>
+		<td><a href="https://ukikipedia.net/wiki/RTA_Guide/Eye_to_Eye_in_the_Secret_Room">Eye to Eye in the Secret Room</a></td>
+      </tr>
+      <tr style="font-size:0.7em;">
+        <td style="font-weight:bold;"><a href="https://ukikipedia.net/wiki/RTA_Guide/HMC">Hazy Maze Cave</a></td>
+        <td><a href="https://ukikipedia.net/wiki/RTA_Guide/Swimming_Beast_in_the_Cavern">	
+Swimming Beast in the Cavern</a></td>
+
+        <td><a href="https://ukikipedia.net/wiki/RTA_Guide/Elevate_for_8_Red_Coins">Elevate for 8 Red Coins</a></td>
+        <td><a href="https://ukikipedia.net/wiki/RTA_Guide/Metal-Head_Mario_Can_Move!"> Metal-Head Mario Can Move!</a></td>
+        <td><a href="https://ukikipedia.net/wiki/RTA_Guide/Navigating_the_Toxic_Maze"> Navigating the Toxic Maze</a></td>
+		<td><a href="https://ukikipedia.net/wiki/RTA_Guide/A-Maze-ing_Emergency_Exit">A-Maze-ing Emergency Exit</a></td>
+		<td><a href="https://ukikipedia.net/wiki/RTA_Guide/Watch_for_Rolling_Rocks">Watch for Rolling Rocks</a></td>
+      </tr>
+      <tr style="font-size:0.7em;">
+        <td style="font-weight:bold;"><a href="https://ukikipedia.net/wiki/RTA_Guide/LLL">Lethal Lava Land</a></td>
+        <td><a href="https://ukikipedia.net/wiki/RTA_Guide/Boil_the_Big_Bully">	
+Boil the Big Bully</a></td>
+
+        <td><a href="https://ukikipedia.net/wiki/RTA_Guide/Bully_the_Bullies">Bully the Bullies</a></td>
+        <td><a href="https://ukikipedia.net/wiki/RTA_Guide/8-Coin_Puzzle_with_15_Pieces">8-Coin Puzzle with 15 Pieces</a></td>
+        <td><a href="https://ukikipedia.net/wiki/RTA_Guide/Red-Hot_Log_Rolling">Red-Hot Log Rolling</a></td>
+		<td><a href="https://ukikipedia.net/wiki/RTA_Guide/Hot-Foot-It_into_the_Volcano">Hot-Foot-It into the Volcano</a></td>
+		<td><a href="https://ukikipedia.net/wiki/RTA_Guide/Elevator_Tour_in_the_Volcano">Elevator Tour in the Volcano</a></td>
+      </tr>
+      <tr style="font-size:0.7em;">
+        <td style="font-weight:bold;"><a href="https://ukikipedia.net/wiki/RTA_Guide/SSL">Shifting Sand Land</a></td>
+        <td><a href="https://ukikipedia.net/wiki/RTA_Guide/In_the_Talons_of_the_Big_Bird">	
+In the Talons of the Big Bird</a></td>
+
+        <td><a href="https://ukikipedia.net/wiki/RTA_Guide/Shining_Atop_the_Pyramid">Shining Atop the Pyramid</a></td>
+        <td><a href="https://ukikipedia.net/wiki/RTA_Guide/Inside_the_Ancient_Pyramid">Inside the Ancient Pyramid</a></td>
+        <td><a href="https://ukikipedia.net/wiki/RTA_Guide/Stand_Tall_on_the_Four_Pillars">Stand Tall on the Four Pillars</a></td>
+		<td><a href="https://ukikipedia.net/wiki/RTA_Guide/Free_Flying_for_8_Red_Coins">Free Flying for 8 Red Coins</a></td>
+		<td><a href="https://ukikipedia.net/wiki/RTA_Guide/Pyramid_Puzzle">Pyramid Puzzle</a></td>
+      </tr>
+      <tr style="font-size:0.7em;">
+        <td style="font-weight:bold;"><a href="https://ukikipedia.net/wiki/RTA_Guide/DDD">	
+Dire, Dire Docks</a></td>
+
+        <td><a href="https://ukikipedia.net/wiki/RTA_Guide/Board_Bowser%27s_Sub">Board Bowser's Sub</a></td>
+        <td><a href="https://ukikipedia.net/wiki/RTA_Guide/Chests_in_the_Current">Chests in the Current</a></td>
+        <td><a href="https://ukikipedia.net/wiki/RTA_Guide/Pole-Jumping_for_Red_Coins">Pole-Jumping for Red Coins</a></td>
+		<td><a href="https://ukikipedia.net/wiki/RTA_Guide/Through_the_Jet_Stream_(DDD)">Through the Jet Stream</a></td>
+		<td><a href="https://ukikipedia.net/wiki/RTA_Guide/The_Manta_Ray%27s_Reward">The Manta Ray's Reward</a></td>
+		<td><a href="https://ukikipedia.net/wiki/RTA_Guide/Collect_the_Caps...">Collect the Caps...</a></td>
+      </tr>
+      <tr style="font-size:0.7em;">
+        <td style="font-weight:bold;"><a href="https://ukikipedia.net/wiki/RTA_Guide/SL">	
+Snowman's Land</a></td>
+
+        <td><a href="https://ukikipedia.net/wiki/RTA_Guide/Snowman%27s_Big_Head">Snowman's Big Head</a></td>
+        <td><a href="https://ukikipedia.net/wiki/RTA_Guide/Chill_with_the_Bully">Chill with the Bully</a></td>
+        <td><a href="https://ukikipedia.net/wiki/RTA_Guide/In_the_Deep_Freeze">In the Deep Freeze</a></td>
+		<td><a href="https://ukikipedia.net/wiki/RTA_Guide/Whirl_from_the_Freezing_Pond">Whirl from the Freezing Pond</a></td>
+		<td><a href="https://ukikipedia.net/wiki/RTA_Guide/Shell_Shreddin%27_for_Red_Coins">Shell Shreddin' for Red Coins</a></td>
+		<td><a href="https://ukikipedia.net/wiki/RTA_Guide/Into_the_Igloo">Into the Igloo</a></td>
+      </tr>
+      <tr style="font-size:0.7em;">
+        <td style="font-weight:bold;"><a href="https://ukikipedia.net/wiki/RTA_Guide/WDW">	
+Wet-Dry World</a></td>
+
+        <td><a href="https://ukikipedia.net/wiki/RTA_Guide/Shocking_Arrow_Lifts!">Shocking Arrow Lifts!</a></td>
+        <td><a href="https://ukikipedia.net/wiki/RTA_Guide/Top_o%27_the_Town">Top o' the Town</a></td>
+        <td><a href="https://ukikipedia.net/wiki/RTA_Guide/Secrets_in_the_Shallows_%26_Sky">Secrets in the Shallows & Sky</a></td>
+		<td><a href="https://ukikipedia.net/wiki/RTA_Guide/Express_Elevator--Hurry_Up!"> Express Elevator--Hurry Up!</a></td>
+		<td><a href="https://ukikipedia.net/wiki/RTA_Guide/Go_to_Town_for_Red_Coins">Go to Town for Red Coins</a></td>
+		<td><a href="https://ukikipedia.net/wiki/RTA_Guide/Quick_Race_Through_Downtown!">Quick Race Through Downtown!</a></td>
+      </tr>
+      <tr style="font-size:0.7em;">
+        <td style="font-weight:bold;"><a href="https://ukikipedia.net/wiki/RTA_Guide/TTM">	
+Tall, Tall Mountain</a></td>
+
+        <td><a href="https://ukikipedia.net/wiki/RTA_Guide/Scale_the_Mountain">Scale the Mountain</a></td>
+        <td><a href="https://ukikipedia.net/wiki/RTA_Guide/Mystery_of_the_Monkey_Cage">Mystery of the Monkey Cage</a></td>
+        <td><a href="https://ukikipedia.net/wiki/RTA_Guide/Scary_%27Shrooms,_Red_Coins">Scary 'Shrooms, Red Coins</a></td>
+		<td><a href="https://ukikipedia.net/wiki/RTA_Guide/Mysterious_Mountainside">Mysterious Mountainside</a></td>
+		<td><a href="https://ukikipedia.net/wiki/RTA_Guide/Breathtaking_View_from_Bridge">Breathtaking View from Bridge</a></td>
+		<td><a href="https://ukikipedia.net/wiki/RTA_Guide/Blast_to_the_Lonely_Mushroom">Blast to the Lonely Mushroom</a></td>
+      </tr>
+      <tr style="font-size:0.7em;">
+        <td style="font-weight:bold;"><a href="https://ukikipedia.net/wiki/RTA_Guide/THI">	
+Tiny-Huge Island</a></td>
+
+        <td><a href="https://ukikipedia.net/wiki/RTA_Guide/Pluck_the_Piranha_Flower">Pluck the Piranha Flower</a></td>
+        <td><a href="https://ukikipedia.net/wiki/RTA_Guide/The_Tip_Top_of_the_Huge_Island">The Tip Top of the Huge Island </a></td>
+        <td><a href="https://ukikipedia.net/wiki/RTA_Guide/Rematch_with_Koopa_the_Quick">Rematch with Koopa the Quick</a></td>
+		<td><a href="https://ukikipedia.net/wiki/RTA_Guide/Five_Itty_Bitty_Secrets">Five Itty Bitty Secrets</a></td>
+		<td><a href="https://ukikipedia.net/wiki/RTA_Guide/Wiggler%27s_Red_Coins">Wiggler's Red Coins</a></td>
+		<td><a href="https://ukikipedia.net/wiki/RTA_Guide/Make_Wiggler_Squirm">Make Wiggler Squirm</a></td>
+      </tr>
+      <tr style="font-size:0.7em;">
+        <td style="font-weight:bold;"><a href="https://ukikipedia.net/wiki/RTA_Guide/TTC">	
+Tick Tock Clock</a></td>
+
+        <td><a href="https://ukikipedia.net/wiki/RTA_Guide/Roll_into_the_Cage">Roll into the Cage</a></td>
+        <td><a href="https://ukikipedia.net/wiki/RTA_Guide/The_Pit_and_the_Pendulums">The Pit and the Pendulums</a></td>
+        <td><a href="https://ukikipedia.net/wiki/RTA_Guide/Get_a_Hand">Get a Hand</a></td>
+		<td><a href="https://ukikipedia.net/wiki/RTA_Guide/Stomp_on_the_Thwomp">Stomp on the Thwomp</a></td>
+		<td><a href="https://ukikipedia.net/wiki/RTA_Guide/Timed_Jumps_on_Moving_Bars">Timed Jumps on Moving Bars</a></td>
+		<td><a href="https://ukikipedia.net/wiki/RTA_Guide/Stop_Time_for_Red_Coins">Stop Time for Red Coins</a></td>
+      </tr>
+      <tr style="font-size:0.7em;">
+        <td style="font-weight:bold;"><a href="https://ukikipedia.net/wiki/RTA_Guide/RR">	
+Rainbow Ride</a></td>
+
+        <td><a href="https://ukikipedia.net/wiki/RTA_Guide/Cruiser_Crossing_the_Rainbow">Cruiser Crossing the Rainbow</a></td>
+        <td><a href="https://ukikipedia.net/wiki/RTA_Guide/The_Big_House_in_the_Sky">The Big House in the Sky</a></td>
+        <td><a href="https://ukikipedia.net/wiki/RTA_Guide/Coins_Amassed_in_a_Maze">Coins Amassed in a Maze</a></td>
+		<td><a href="https://ukikipedia.net/wiki/RTA_Guide/Swingin%27_in_the_Breeze">Swingin' in the Breeze</a></td>
+		<td><a href="https://ukikipedia.net/wiki/RTA_Guide/Tricky_Triangles!">Tricky Triangles!</a></td>
+		<td><a href="https://ukikipedia.net/wiki/RTA_Guide/Somewhere_Over_the_Rainbow">Somewhere Over the Rainbow</a></td>
+      </tr>
+	  <tr style="font-size:0.7em;">
+        <td style="font-weight:bold;" rowspan=2>Extra</td>
+        <td><a href="https://ukikipedia.net/wiki/RTA_Guide/The_Princess%27s_Secret_Slide">The Princess's Secret Slide</a></td>
+        <td><a href="https://ukikipedia.net/wiki/RTA_Guide/The_Secret_Aquarium">The Secret Aquarium</a></td>
+        <td><a href="https://ukikipedia.net/wiki/RTA_Guide/Wing_Mario_Over_the_Rainbow">Wing Mario Over the Rainbow</a></td>
+        <td><a href="https://ukikipedia.net/wiki/RTA_Guide/Tower_of_the_Wing_Cap">Tower of the Wing Cap</a></td>
+        <td><a href="https://ukikipedia.net/wiki/RTA_Guide/Vanish_Cap_Under_the_Moat">Vanish Cap Under the Moat</a></td>
+        <td><a href="https://ukikipedia.net/wiki/RTA_Guide/Cavern_of_the_Metal_Cap">Cavern of the Metal Cap</a></td>
+      </tr>
+	  <tr style="font-size:0.7em;">
+        <td><a href="https://ukikipedia.net/wiki/RTA_Guide/Bowser_in_the_Dark_World">Bowser in the Dark World</a></td>
+        <td><a href="https://ukikipedia.net/wiki/RTA_Guide/Bowser_in_the_Fire_Sea">Bowser in the Fire Sea</a></td>
+        <td><a href="https://ukikipedia.net/wiki/RTA_Guide/Bowser_in_the_Sky">Bowser in the Sky</a></td>
+		<td><a href="https://ukikipedia.net/wiki/RTA_Guide/MIPS#Entering_Basement">Mips 1</a></td>
+		<td><a href="https://ukikipedia.net/wiki/RTA_Guide/HMC_Toad">HMC Toad</a>/<a href="https://ukikipedia.net/wiki/RTA_Guide/Upstairs_Toad">Upstairs Toad</a>/<a href="https://ukikipedia.net/wiki/RTA_Guide/Tippy_Toad">Tippy Toad</a></td>
+		<td><a href="https://ukikipedia.net/wiki/RTA_Guide/MIPS#Exiting_LLL">Mips 2</a></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+</div>
+</body>
+</html>

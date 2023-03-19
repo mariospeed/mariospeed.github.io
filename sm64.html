@@ -263,7 +263,7 @@ function SM641StarFunction() {
 								var nameLink = msg.data.weblink;
 								var nameTwitch = msg.data.twitch.uri;
 								document.getElementById("SM641StarCategory").innerHTML = "<a href=" + category +">" + "1 Star"+ "</a>";
-								document.getElementById("SM641StarTime").innerHTML = minutes + ":0" + seconds.toFixed(2) ;
+								document.getElementById("SM641StarTime").innerHTML = minutes + ":" + seconds.toFixed(2) ;
 								document.getElementById("SM641StarRunner").innerHTML =   "<a href=" + nameLink +">" + name + "</a> <a href=" + nameTwitch +"> <i class='fa fa-twitch'></i>";
 								if(Math.abs(eventDate1.diff(moment1, 'days')) == 1){
 									document.getElementById("SM641StarDate").innerHTML = date1 + " (" +  Math.abs(eventDate1.diff(moment1, 'days')) + " day ago)";

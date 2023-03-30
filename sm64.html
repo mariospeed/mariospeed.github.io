@@ -96,7 +96,11 @@ $.ajax({
 								var nameLink = msg.data.weblink;
 								var nameTwitch = msg.data.twitch.uri;
 								document.getElementById("SM6470StarCategory").innerHTML = "<a href=" + category +">" + "70 Star"+ "</a>";
-								document.getElementById("SM6470StarTime").innerHTML = minutes + ":" + seconds.toFixed(0) ;
+								if (seconds < 10)
+									document.getElementById("SM6470StarTime").innerHTML = minutes + ":0" + seconds.toFixed(0) ;
+								else{
+									document.getElementById("SM6470StarTime").innerHTML = minutes + ":" + seconds.toFixed(0) ;
+								}
 								document.getElementById("SM6470StarRunner").innerHTML =   "<a href=" + nameLink +">" + name + "</a> <a href=" + nameTwitch +"> <i class='fa fa-twitch'></i>";
 								if(Math.abs(eventDate70.diff(moment70, 'days')) == 1){
 									document.getElementById("SM6470StarDate").innerHTML = date70 + " (" +  Math.abs(eventDate70.diff(moment70, 'days')) + " day ago)";
@@ -158,7 +162,13 @@ function SM64120StarFunction() {
 								var nameLink = msg.data.weblink;
 								var nameTwitch = msg.data.twitch.uri;
 								document.getElementById("SM64120StarCategory").innerHTML = "<a href=" + category +">" + "120 Star"+ "</a>";
-								document.getElementById("SM64120StarTime").innerHTML =hours  + ":" + newMin + ":" + seconds.toFixed(0) ;
+
+								
+								if (seconds < 10)
+									document.getElementById("SM64120StarTime").innerHTML = hours  + ":" + newMin + ":0" + seconds.toFixed(0) ;
+								else{
+									document.getElementById("SM64120StarTime").innerHTML = hours  + ":" + newMin + ":" + seconds.toFixed(0) ;
+								}
 								document.getElementById("SM64120StarRunner").innerHTML =   "<a href=" + nameLink +">" + name + "</a> <a href=" + nameTwitch +"> <i class='fa fa-twitch'></i>";
 								if(Math.abs(eventDate120.diff(moment120, 'days')) == 1){
 									document.getElementById("SM64120StarDate").innerHTML = date120 + " (" +  Math.abs(eventDate120.diff(moment120, 'days')) + " day ago)";
@@ -209,7 +219,11 @@ function SM6416StarFunction() {
 								var nameLink = msg.data.weblink;
 								var nameTwitch = msg.data.twitch.uri;
 								document.getElementById("SM6416StarCategory").innerHTML = "<a href=" + category +">" + "16 Star"+ "</a>";
-								document.getElementById("SM6416StarTime").innerHTML = minutes + ":" + seconds.toFixed(2) ;
+								if (seconds < 10)
+									document.getElementById("SM6416StarTime").innerHTML = minutes + ":0" + seconds.toFixed(2) ;
+								else{
+									document.getElementById("SM6416StarTime").innerHTML = minutes + ":" + seconds.toFixed(2) ;
+								}
 								document.getElementById("SM6416StarRunner").innerHTML =   "<a href=" + nameLink +">" + name + "</a> <a href=" + nameTwitch +"> <i class='fa fa-twitch'></i>";
 								
 								
@@ -263,7 +277,12 @@ function SM641StarFunction() {
 								var nameLink = msg.data.weblink;
 								var nameTwitch = msg.data.twitch.uri;
 								document.getElementById("SM641StarCategory").innerHTML = "<a href=" + category +">" + "1 Star"+ "</a>";
-								document.getElementById("SM641StarTime").innerHTML = minutes + ":" + seconds.toFixed(2) ;
+
+								if (seconds < 10)
+									document.getElementById("SM641StarTime").innerHTML = minutes + ":0" + seconds.toFixed(2) ;
+								else{
+									document.getElementById("SM641StarTime").innerHTML = minutes + ":" + seconds.toFixed(2) ;
+								}
 								document.getElementById("SM641StarRunner").innerHTML =   "<a href=" + nameLink +">" + name + "</a> <a href=" + nameTwitch +"> <i class='fa fa-twitch'></i>";
 								if(Math.abs(eventDate1.diff(moment1, 'days')) == 1){
 									document.getElementById("SM641StarDate").innerHTML = date1 + " (" +  Math.abs(eventDate1.diff(moment1, 'days')) + " day ago)";
@@ -314,7 +333,12 @@ function SM640StarFunction() {
 								var nameLink = msg.data.weblink;
 								var nameTwitch = msg.data.twitch.uri;
 								document.getElementById("SM640StarCategory").innerHTML = "<a href=" + category +">" + "0 Star"+ "</a>";
-								document.getElementById("SM640StarTime").innerHTML = minutes + ":" + seconds.toFixed(2) ;
+
+								if (seconds < 10)
+									document.getElementById("SM640StarTime").innerHTML = minutes + ":0" + seconds.toFixed(2) ;
+								else{
+									document.getElementById("SM640StarTime").innerHTML = minutes + ":" + seconds.toFixed(2) ;
+								}
 								document.getElementById("SM640StarRunner").innerHTML =   "<a href=" + nameLink +">" + name + "</a> <a href=" + nameTwitch +"> <i class='fa fa-twitch'></i>";
 								if(Math.abs(eventDate0.diff(moment0, 'days')) == 1){
 									document.getElementById("SM640StarDate").innerHTML = date0 + " (" +  Math.abs(eventDate0.diff(moment0, 'days')) + " day ago)";
